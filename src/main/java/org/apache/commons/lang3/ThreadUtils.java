@@ -565,7 +565,7 @@ public class ThreadUtils {
         try {
             sleep(duration);
         } catch (final InterruptedException e) {
-            // be quiet.
+            Thread.currentThread().interrupt();
         }
     }
 
