@@ -18,18 +18,7 @@ package org.apache.commons.lang3;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.mutable.MutableObject;
@@ -1113,6 +1102,9 @@ public class ClassUtils {
 
                 @Override
                 public Class<?> next() {
+                    if (!hasNext()) {
+                        throw new NoSuchElementException();
+                    }
                     final Class<?> result = next.getValue();
                     next.setValue(result.getSuperclass());
                     return result;
