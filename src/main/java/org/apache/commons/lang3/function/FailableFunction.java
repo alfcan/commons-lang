@@ -54,7 +54,7 @@ public interface FailableFunction<T, R, E extends Throwable> {
      * @param <E> The kind of thrown exception or error.
      * @return The NOP singleton.
      */
-    static <T, R, E extends Throwable> FailableFunction<T, R, E> nop() {
+    static <T, R, E extends Throwable> FailableFunction<T, R, E> getNop() {
         return NOP;
     }
 

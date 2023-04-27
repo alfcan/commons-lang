@@ -38,7 +38,7 @@ public interface FailableIntToLongFunction<E extends Throwable> {
      * @param <E> The kind of thrown exception or error.
      * @return The NOP singleton.
      */
-    static <E extends Throwable> FailableIntToLongFunction<E> nop() {
+    static <E extends Throwable> FailableIntToLongFunction<E> getNop() {
         return NOP;
     }
 

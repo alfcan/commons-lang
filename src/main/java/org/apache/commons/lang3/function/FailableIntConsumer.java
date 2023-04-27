@@ -39,7 +39,7 @@ public interface FailableIntConsumer<E extends Throwable> {
      * @param <E> The kind of thrown exception or error.
      * @return The NOP singleton.
      */
-    static <E extends Throwable> FailableIntConsumer<E> nop() {
+    static <E extends Throwable> FailableIntConsumer<E> getNop() {
         return NOP;
     }
 

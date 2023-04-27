@@ -40,7 +40,7 @@ public interface FailableToDoubleFunction<T, E extends Throwable> {
      * @param <E> The kind of thrown exception or error.
      * @return The NOP singleton.
      */
-    static <T, E extends Throwable> FailableToDoubleFunction<T, E> nop() {
+    static <T, E extends Throwable> FailableToDoubleFunction<T, E> getNop() {
         return NOP;
     }
 

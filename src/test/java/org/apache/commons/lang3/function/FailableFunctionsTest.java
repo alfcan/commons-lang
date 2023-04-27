@@ -645,7 +645,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             t.setThrowable(th);
             t.test();
         };
-        final FailableBiConsumer<Testable<?, ?>, Throwable, Throwable> nop = FailableBiConsumer.nop();
+        final FailableBiConsumer<Testable<?, ?>, Throwable, Throwable> nop = FailableBiConsumer.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).accept(testable, ERROR));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.andThen(nop).accept(testable, ERROR));
@@ -696,8 +696,8 @@ public class FailableFunctionsTest extends AbstractLangTest {
             throw new IOException();
         };
         final FailableBiFunction<Object, Integer, Integer, IOException> nopFailableBiFunction = FailableBiFunction
-            .nop();
-        final FailableFunction<Object, Integer, IOException> nopFailableFunction = FailableFunction.nop();
+            .getNop();
+        final FailableFunction<Object, Integer, IOException> nopFailableFunction = FailableFunction.getNop();
         //
         assertThrows(IOException.class, () -> failingBiFunctionTest.andThen(failingFunction).apply(null, null));
         assertThrows(IOException.class, () -> failingBiFunctionTest.andThen(nopFailableFunction).apply(null, null));
@@ -778,7 +778,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.setThrowable(th);
             testable.test();
         };
-        final FailableConsumer<Throwable, Throwable> nop = FailableConsumer.nop();
+        final FailableConsumer<Throwable, Throwable> nop = FailableConsumer.getNop();
         final Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failableConsumer).accept(ERROR));
         assertSame(ERROR, e);
         // Does not throw
@@ -794,7 +794,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.setThrowable(ERROR);
             testable.test();
         };
-        final FailableDoubleConsumer<Throwable> nop = FailableDoubleConsumer.nop();
+        final FailableDoubleConsumer<Throwable> nop = FailableDoubleConsumer.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).accept(0d));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.andThen(nop).accept(0d));
@@ -855,7 +855,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.test();
             return 0d;
         };
-        final FailableDoubleUnaryOperator<Throwable> nop = FailableDoubleUnaryOperator.nop();
+        final FailableDoubleUnaryOperator<Throwable> nop = FailableDoubleUnaryOperator.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).applyAsDouble(0d));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.andThen(nop).applyAsDouble(0d));
@@ -874,7 +874,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.test();
             return 0d;
         };
-        final FailableDoubleUnaryOperator<Throwable> nop = FailableDoubleUnaryOperator.nop();
+        final FailableDoubleUnaryOperator<Throwable> nop = FailableDoubleUnaryOperator.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.compose(failing).applyAsDouble(0d));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.compose(nop).applyAsDouble(0d));
@@ -928,7 +928,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
         final FailableFunction<Object, Integer, IOException> failingFunction = t -> {
             throw new IOException();
         };
-        final FailableFunction<Object, Integer, IOException> nopFailableFunction = FailableFunction.nop();
+        final FailableFunction<Object, Integer, IOException> nopFailableFunction = FailableFunction.getNop();
         //
         assertThrows(IOException.class, () -> failingFunction.andThen(failingFunction).apply(null));
         assertThrows(IOException.class, () -> failingFunction.andThen(nopFailableFunction).apply(null));
@@ -947,7 +947,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.test();
             return 0;
         };
-        final FailableFunction<Object, Integer, Throwable> nop = FailableFunction.nop();
+        final FailableFunction<Object, Integer, Throwable> nop = FailableFunction.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.compose(failing).apply(0));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.compose(nop).apply(0));
@@ -1122,7 +1122,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.setThrowable(ERROR);
             testable.test();
         };
-        final FailableIntConsumer<Throwable> nop = FailableIntConsumer.nop();
+        final FailableIntConsumer<Throwable> nop = FailableIntConsumer.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).accept(0));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.andThen(nop).accept(0));
@@ -1183,7 +1183,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.test();
             return 0;
         };
-        final FailableIntUnaryOperator<Throwable> nop = FailableIntUnaryOperator.nop();
+        final FailableIntUnaryOperator<Throwable> nop = FailableIntUnaryOperator.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).applyAsInt(0));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.andThen(nop).applyAsInt(0));
@@ -1202,7 +1202,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.test();
             return 0;
         };
-        final FailableIntUnaryOperator<Throwable> nop = FailableIntUnaryOperator.nop();
+        final FailableIntUnaryOperator<Throwable> nop = FailableIntUnaryOperator.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.compose(failing).applyAsInt(0));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.compose(nop).applyAsInt(0));
@@ -1229,7 +1229,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.setThrowable(ERROR);
             testable.test();
         };
-        final FailableLongConsumer<Throwable> nop = FailableLongConsumer.nop();
+        final FailableLongConsumer<Throwable> nop = FailableLongConsumer.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).accept(0L));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.andThen(nop).accept(0L));
@@ -1286,7 +1286,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.test();
             return 0L;
         };
-        final FailableLongUnaryOperator<Throwable> nop = FailableLongUnaryOperator.nop();
+        final FailableLongUnaryOperator<Throwable> nop = FailableLongUnaryOperator.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).applyAsLong(0L));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.andThen(nop).applyAsLong(0L));
@@ -1305,7 +1305,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
             testable.test();
             return 0L;
         };
-        final FailableLongUnaryOperator<Throwable> nop = FailableLongUnaryOperator.nop();
+        final FailableLongUnaryOperator<Throwable> nop = FailableLongUnaryOperator.getNop();
         Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.compose(failing).applyAsLong(0L));
         assertSame(ERROR, e);
         e = assertThrows(OutOfMemoryError.class, () -> failing.compose(nop).applyAsLong(0L));
@@ -2566,106 +2566,106 @@ public class FailableFunctionsTest extends AbstractLangTest {
 
     @Test
     public void testFailableDoubleToIntFunctionNop() throws Throwable {
-        assertEquals(0, FailableDoubleToIntFunction.nop().applyAsInt(Double.MAX_VALUE), "Expect NOP to return 0");
+        assertEquals(0, FailableDoubleToIntFunction.getNop().applyAsInt(Double.MAX_VALUE), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableDoubleToLongFunctionNop() throws Throwable {
-        assertEquals(0, FailableDoubleToLongFunction.nop().applyAsLong(Double.MAX_VALUE), "Expect NOP to return 0");
+        assertEquals(0, FailableDoubleToLongFunction.getNop().applyAsLong(Double.MAX_VALUE), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableIntToDoubleFunctionNop() throws Throwable {
-        assertEquals(0, FailableIntToDoubleFunction.nop().applyAsDouble(Integer.MAX_VALUE), "Expect NOP to return 0");
+        assertEquals(0, FailableIntToDoubleFunction.getNop().applyAsDouble(Integer.MAX_VALUE), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableIntToLongFunctionNop() throws Throwable {
-        assertEquals(0, FailableIntToLongFunction.nop().applyAsLong(Integer.MAX_VALUE), "Expect NOP to return 0");
+        assertEquals(0, FailableIntToLongFunction.getNop().applyAsLong(Integer.MAX_VALUE), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableLongToDoubleFunctionNop() throws Throwable {
-        assertEquals(0, FailableLongToDoubleFunction.nop().applyAsDouble(Long.MAX_VALUE), "Expect NOP to return 0");
+        assertEquals(0, FailableLongToDoubleFunction.getNop().applyAsDouble(Long.MAX_VALUE), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableLongToIntFunctionNop() throws Throwable {
-        assertEquals(0, FailableLongToIntFunction.nop().applyAsInt(Long.MAX_VALUE), "Expect NOP to return 0");
+        assertEquals(0, FailableLongToIntFunction.getNop().applyAsInt(Long.MAX_VALUE), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableToIntFunctionNop() throws Throwable {
-        assertEquals(0, FailableToIntFunction.nop().applyAsInt("Foo"), "Expect NOP to return 0");
+        assertEquals(0, FailableToIntFunction.getNop().applyAsInt("Foo"), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableToIntBiFunctionNop() throws Throwable {
-        assertEquals(0, FailableToIntBiFunction.nop().applyAsInt("Foo", "Bar"), "Expect NOP to return 0");
+        assertEquals(0, FailableToIntBiFunction.getNop().applyAsInt("Foo", "Bar"), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableToLongFunctionNop() throws Throwable {
-        assertEquals(0, FailableToLongFunction.nop().applyAsLong("Foo"), "Expect NOP to return 0");
+        assertEquals(0, FailableToLongFunction.getNop().applyAsLong("Foo"), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableToLongBiFunctionNop() throws Throwable {
-        assertEquals(0, FailableToLongBiFunction.nop().applyAsLong("Foo", "Bar"), "Expect NOP to return 0");
+        assertEquals(0, FailableToLongBiFunction.getNop().applyAsLong("Foo", "Bar"), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableToDoubleFunctionNop() throws Throwable {
-        assertEquals(0, FailableToDoubleFunction.nop().applyAsDouble("Foo"), "Expect NOP to return 0");
+        assertEquals(0, FailableToDoubleFunction.getNop().applyAsDouble("Foo"), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableToDoubleBiFunctionNop() throws Throwable {
-        assertEquals(0, FailableToDoubleBiFunction.nop().applyAsDouble("Foo", "Bar"), "Expect NOP to return 0");
+        assertEquals(0, FailableToDoubleBiFunction.getNop().applyAsDouble("Foo", "Bar"), "Expect NOP to return 0");
     }
 
     @Test
     public void testFailableBiFunctionNop() throws Throwable {
-        assertNull(FailableBiFunction.nop().apply("Foo", "Bar"), "Expect NOP to return null");
+        assertNull(FailableBiFunction.getNop().apply("Foo", "Bar"), "Expect NOP to return null");
     }
 
     @Test
     public void testFailableDoubleFunctionNop() throws Throwable {
-        assertNull(FailableDoubleFunction.nop().apply(Double.MAX_VALUE), "Expect NOP to return null");
+        assertNull(FailableDoubleFunction.getNop().apply(Double.MAX_VALUE), "Expect NOP to return null");
     }
 
     @Test
     public void testFailableIntFunctionNop() throws Throwable {
-        assertNull(FailableIntFunction.nop().apply(Integer.MAX_VALUE), "Expect NOP to return null");
+        assertNull(FailableIntFunction.getNop().apply(Integer.MAX_VALUE), "Expect NOP to return null");
     }
 
     @Test
     public void testFailableLongFunctionNop() throws Throwable {
-        assertNull(FailableLongFunction.nop().apply(Long.MAX_VALUE), "Expect NOP to return null");
+        assertNull(FailableLongFunction.getNop().apply(Long.MAX_VALUE), "Expect NOP to return null");
     }
 
     @Test
     public void testFailableConsumerNop() throws Throwable {
         // Expect nothing thrown
-        FailableConsumer.nop().accept("Foo");
+        FailableConsumer.getNop().accept("Foo");
     }
 
     @Test
     public void testFailableObjDoubleConsumerNop() throws Throwable {
         // Expect nothing thrown
-        FailableObjDoubleConsumer.nop().accept("Foo", Double.MAX_VALUE);
+        FailableObjDoubleConsumer.getNop().accept("Foo", Double.MAX_VALUE);
     }
 
     @Test
     public void testFailableObjIntConsumerNop() throws Throwable {
         // Expect nothing thrown
-        FailableObjIntConsumer.nop().accept("Foo", Integer.MAX_VALUE);
+        FailableObjIntConsumer.getNop().accept("Foo", Integer.MAX_VALUE);
     }
 
     @Test
     public void testFailableObjLongConsumerNop() throws Throwable {
         // Expect nothing thrown
-        FailableObjLongConsumer.nop().accept("Foo", Long.MAX_VALUE);
+        FailableObjLongConsumer.getNop().accept("Foo", Long.MAX_VALUE);
     }
 
 }

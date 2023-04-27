@@ -42,7 +42,7 @@ public interface FailableToLongBiFunction<T, U, E extends Throwable> {
      * @param <E> The kind of thrown exception or error.
      * @return The NOP singleton.
      */
-    static <T, U, E extends Throwable> FailableToLongBiFunction<T, U, E> nop() {
+    static <T, U, E extends Throwable> FailableToLongBiFunction<T, U, E> getNop() {
         return NOP;
     }
 
