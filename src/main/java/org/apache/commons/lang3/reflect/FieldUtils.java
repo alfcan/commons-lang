@@ -43,6 +43,11 @@ import org.apache.commons.lang3.Validate;
  */
 public class FieldUtils {
 
+    private static final String FIELD_STRING = "field";
+    private static final String TARGET_STRING = "target";
+    private static final String DECLARED_FIELD_ERROR = "Cannot locate declared field %s.%s";
+
+
     /**
      * {@link FieldUtils} instances should NOT be constructed in standard programming.
      * <p>
@@ -282,7 +287,7 @@ public class FieldUtils {
      *             if the field is not made accessible
      */
     public static Object readStaticField(final Field field, final boolean forceAccess) throws IllegalAccessException {
-        Objects.requireNonNull(field, "field");
+        Objects.requireNonNull(field, FIELD_STRING);
         Validate.isTrue(MemberUtils.isStatic(field), "The field '%s' is not static", field.getName());
         return readField(field, (Object) null, forceAccess);
     }
@@ -369,7 +374,7 @@ public class FieldUtils {
      */
     public static Object readDeclaredStaticField(final Class<?> cls, final String fieldName, final boolean forceAccess) throws IllegalAccessException {
         final Field field = getDeclaredField(cls, fieldName, forceAccess);
-        Validate.notNull(field, "Cannot locate declared field %s.%s", cls.getName(), fieldName);
+        Validate.notNull(field, DECLARED_FIELD_ERROR, cls.getName(), fieldName);
         // already forced access above, don't repeat it here:
         return readStaticField(field, false);
     }
@@ -408,7 +413,7 @@ public class FieldUtils {
      *             if the field is not made accessible
      */
     public static Object readField(final Field field, final Object target, final boolean forceAccess) throws IllegalAccessException {
-        Objects.requireNonNull(field, "field");
+        Objects.requireNonNull(field, FIELD_STRING);
         if (forceAccess && !field.isAccessible()) {
             field.setAccessible(true);
         } else {
@@ -452,7 +457,7 @@ public class FieldUtils {
      *             if the named field is not made accessible
      */
     public static Object readField(final Object target, final String fieldName, final boolean forceAccess) throws IllegalAccessException {
-        Objects.requireNonNull(target, "target");
+        Objects.requireNonNull(target, TARGET_STRING);
         final Class<?> cls = target.getClass();
         final Field field = getField(cls, fieldName, forceAccess);
         Validate.isTrue(field != null, "Cannot locate field %s on %s", fieldName, cls);
@@ -495,10 +500,10 @@ public class FieldUtils {
      *             if the field is not made accessible
      */
     public static Object readDeclaredField(final Object target, final String fieldName, final boolean forceAccess) throws IllegalAccessException {
-        Objects.requireNonNull(target, "target");
+        Objects.requireNonNull(target, TARGET_STRING);
         final Class<?> cls = target.getClass();
         final Field field = getDeclaredField(cls, fieldName, forceAccess);
-        Validate.isTrue(field != null, "Cannot locate declared field %s.%s", cls, fieldName);
+        Validate.isTrue(field != null, DECLARED_FIELD_ERROR, cls, fieldName);
         // already forced access above, don't repeat it here:
         return readField(field, target, false);
     }
@@ -536,7 +541,7 @@ public class FieldUtils {
      *             if the field is not made accessible or is {@code final}
      */
     public static void writeStaticField(final Field field, final Object value, final boolean forceAccess) throws IllegalAccessException {
-        Objects.requireNonNull(field, "field");
+        Objects.requireNonNull(field, FIELD_STRING);
         Validate.isTrue(MemberUtils.isStatic(field), "The field %s.%s is not static", field.getDeclaringClass().getName(),
                 field.getName());
         writeField(field, (Object) null, value, forceAccess);
@@ -628,7 +633,7 @@ public class FieldUtils {
     public static void writeDeclaredStaticField(final Class<?> cls, final String fieldName, final Object value, final boolean forceAccess)
             throws IllegalAccessException {
         final Field field = getDeclaredField(cls, fieldName, forceAccess);
-        Validate.notNull(field, "Cannot locate declared field %s.%s", cls.getName(), fieldName);
+        Validate.notNull(field, DECLARED_FIELD_ERROR, cls.getName(), fieldName);
         // already forced access above, don't repeat it here:
         writeField(field, (Object) null, value, false);
     }
@@ -670,7 +675,7 @@ public class FieldUtils {
      */
     public static void writeField(final Field field, final Object target, final Object value, final boolean forceAccess)
             throws IllegalAccessException {
-        Objects.requireNonNull(field, "field");
+        Objects.requireNonNull(field, FIELD_STRING);
         if (forceAccess && !field.isAccessible()) {
             field.setAccessible(true);
         } else {
@@ -710,7 +715,7 @@ public class FieldUtils {
      */
     @Deprecated
     public static void removeFinalModifier(final Field field, final boolean forceAccess) {
-        Objects.requireNonNull(field, "field");
+        Objects.requireNonNull(field, FIELD_STRING);
 
         try {
             if (Modifier.isFinal(field.getModifiers())) {
@@ -779,10 +784,10 @@ public class FieldUtils {
      */
     public static void writeField(final Object target, final String fieldName, final Object value, final boolean forceAccess)
             throws IllegalAccessException {
-        Objects.requireNonNull(target, "target");
+        Objects.requireNonNull(target, TARGET_STRING);
         final Class<?> cls = target.getClass();
         final Field field = getField(cls, fieldName, forceAccess);
-        Validate.isTrue(field != null, "Cannot locate declared field %s.%s", cls.getName(), fieldName);
+        Validate.isTrue(field != null, DECLARED_FIELD_ERROR, cls.getName(), fieldName);
         // already forced access above, don't repeat it here:
         writeField(field, target, value, false);
     }
@@ -827,10 +832,10 @@ public class FieldUtils {
      */
     public static void writeDeclaredField(final Object target, final String fieldName, final Object value, final boolean forceAccess)
             throws IllegalAccessException {
-        Objects.requireNonNull(target, "target");
+        Objects.requireNonNull(target, TARGET_STRING);
         final Class<?> cls = target.getClass();
         final Field field = getDeclaredField(cls, fieldName, forceAccess);
-        Validate.isTrue(field != null, "Cannot locate declared field %s.%s", cls.getName(), fieldName);
+        Validate.isTrue(field != null, DECLARED_FIELD_ERROR, cls.getName(), fieldName);
         // already forced access above, don't repeat it here:
         writeField(field, target, value, false);
     }

@@ -57,6 +57,8 @@ import org.apache.commons.lang3.stream.Streams;
 // because it is part of the signature of deprecated methods
 public class ObjectUtils {
 
+    private static final String OBJECT_STRING = "object";
+
     /**
      * Class used as a null placeholder where {@code null}
      * has another meaning.
@@ -133,7 +135,7 @@ public class ObjectUtils {
      * ObjectUtils.allNotNull(*, *, null, *) = false
      * </pre>
      *
-     * @param values  the values to test, may be {@code null} or empty
+     * @param values the values to test, may be {@code null} or empty
      * @return {@code false} if there is at least one {@code null} value in the array or the array is {@code null},
      * {@code true} if all values in the array are not {@code null}s or array contains no elements.
      * @since 3.5
@@ -159,7 +161,7 @@ public class ObjectUtils {
      * ObjectUtils.allNull(null, null)       = true
      * </pre>
      *
-     * @param values  the values to test, may be {@code null} or empty
+     * @param values the values to test, may be {@code null} or empty
      * @return {@code true} if all values in the array are {@code null}s,
      * {@code false} if there is at least one non-null value in the array.
      * @since 3.11
@@ -185,7 +187,7 @@ public class ObjectUtils {
      * ObjectUtils.anyNotNull(null, null)       = false
      * </pre>
      *
-     * @param values  the values to test, may be {@code null} or empty
+     * @param values the values to test, may be {@code null} or empty
      * @return {@code true} if there is at least one non-null value in the array,
      * {@code false} if all values in the array are {@code null}s.
      * If the array is {@code null} or empty {@code false} is also returned.
@@ -213,7 +215,7 @@ public class ObjectUtils {
      * ObjectUtils.anyNull(*, *, null, *) = true
      * </pre>
      *
-     * @param values  the values to test, may be {@code null} or empty
+     * @param values the values to test, may be {@code null} or empty
      * @return {@code true} if there is at least one {@code null} value in the array,
      * {@code false} if all the values are non-null.
      * If the array is {@code null} or empty, {@code true} is also returned.
@@ -227,7 +229,7 @@ public class ObjectUtils {
      * Clone an object.
      *
      * @param <T> the type of the object
-     * @param obj  the object to clone, null returns null
+     * @param obj the object to clone, null returns null
      * @return the clone if the object implements {@link Cloneable} otherwise {@code null}
      * @throws CloneFailedException if the object is cloneable and the clone operation fails
      * @since 3.0
@@ -281,7 +283,7 @@ public class ObjectUtils {
      * clone implementation and the caller's code does not have to change.</p>
      *
      * @param <T> the type of the object
-     * @param obj  the object to clone, null returns null
+     * @param obj the object to clone, null returns null
      * @return the clone if the object implements {@link Cloneable} otherwise the object itself
      * @throws CloneFailedException if the object is cloneable and the clone operation fails
      * @since 3.0
@@ -300,7 +302,7 @@ public class ObjectUtils {
      * @param c1  the first comparable, may be null
      * @param c2  the second comparable, may be null
      * @return a negative value if c1 &lt; c2, zero if c1 = c2
-     *  and a positive value if c1 &gt; c2
+     * and a positive value if c1 &gt; c2
      */
     public static <T extends Comparable<? super T>> int compare(final T c1, final T c2) {
         return compare(c1, c2, false);
@@ -310,14 +312,14 @@ public class ObjectUtils {
      * Null safe comparison of Comparables.
      * <p>TODO Move to ComparableUtils.</p>
      *
-     * @param <T> type of the values processed by this method
-     * @param c1  the first comparable, may be null
-     * @param c2  the second comparable, may be null
+     * @param <T>         type of the values processed by this method
+     * @param c1          the first comparable, may be null
+     * @param c2          the second comparable, may be null
      * @param nullGreater if true {@code null} is considered greater
-     *  than a non-{@code null} value or if false {@code null} is
-     *  considered less than a Non-{@code null} value
+     *                    than a non-{@code null} value or if false {@code null} is
+     *                    considered less than a Non-{@code null} value
      * @return a negative value if c1 &lt; c2, zero if c1 = c2
-     *  and a positive value if c1 &gt; c2
+     * and a positive value if c1 &gt; c2
      * @see java.util.Comparator#compare(Object, Object)
      */
     public static <T extends Comparable<? super T>> int compare(final T c1, final T c2, final boolean nullGreater) {
@@ -341,7 +343,7 @@ public class ObjectUtils {
      * <pre>
      *     public final static boolean MAGIC_FLAG = ObjectUtils.CONST(true);
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
@@ -362,7 +364,7 @@ public class ObjectUtils {
      * <pre>
      *     public final static byte MAGIC_BYTE = ObjectUtils.CONST((byte) 127);
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
@@ -383,7 +385,7 @@ public class ObjectUtils {
      * <pre>
      *     public final static char MAGIC_CHAR = ObjectUtils.CONST('a');
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
@@ -404,7 +406,7 @@ public class ObjectUtils {
      * <pre>
      *     public final static double MAGIC_DOUBLE = ObjectUtils.CONST(1.0);
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
@@ -425,7 +427,7 @@ public class ObjectUtils {
      * <pre>
      *     public final static float MAGIC_FLOAT = ObjectUtils.CONST(1.0f);
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
@@ -446,7 +448,7 @@ public class ObjectUtils {
      * <pre>
      *     public final static int MAGIC_INT = ObjectUtils.CONST(123);
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
@@ -467,7 +469,7 @@ public class ObjectUtils {
      * <pre>
      *     public final static long MAGIC_LONG = ObjectUtils.CONST(123L);
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
@@ -488,7 +490,7 @@ public class ObjectUtils {
      * <pre>
      *     public final static short MAGIC_SHORT = ObjectUtils.CONST((short) 123);
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
@@ -509,13 +511,13 @@ public class ObjectUtils {
      * <pre>
      *     public final static String MAGIC_STRING = ObjectUtils.CONST("abc");
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
      *
      * @param <T> the Object type
-     * @param v the genericized Object value to return (typically a String).
+     * @param v   the genericized Object value to return (typically a String).
      * @return the genericized Object v, unchanged (typically a String).
      * @since 3.2
      */
@@ -531,16 +533,16 @@ public class ObjectUtils {
      * <pre>
      *     public final static byte MAGIC_BYTE = ObjectUtils.CONST_BYTE(127);
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
      *
      * @param v the byte literal (as an int) value to return
-     * @throws IllegalArgumentException if the value passed to v
-     *         is larger than a byte, that is, smaller than -128 or
-     *         larger than 127.
      * @return the byte v, unchanged
+     * @throws IllegalArgumentException if the value passed to v
+     *                                  is larger than a byte, that is, smaller than -128 or
+     *                                  larger than 127.
      * @since 3.2
      */
     public static byte CONST_BYTE(final int v) {
@@ -558,16 +560,16 @@ public class ObjectUtils {
      * <pre>
      *     public final static short MAGIC_SHORT = ObjectUtils.CONST_SHORT(127);
      * </pre>
-     *
+     * <p>
      * This way any jars that refer to this field do not
      * have to recompile themselves if the field's value
      * changes at some future date.
      *
      * @param v the short literal (as an int) value to return
-     * @throws IllegalArgumentException if the value passed to v
-     *         is larger than a short, that is, smaller than -32768 or
-     *         larger than 32767.
      * @return the byte v, unchanged
+     * @throws IllegalArgumentException if the value passed to v
+     *                                  is larger than a short, that is, smaller than -32768 or
+     *                                  larger than 32767.
      * @since 3.2
      */
     public static short CONST_SHORT(final int v) {
@@ -588,9 +590,9 @@ public class ObjectUtils {
      * ObjectUtils.defaultIfNull(Boolean.TRUE, *) = Boolean.TRUE
      * </pre>
      *
-     * @param <T> the type of the object
-     * @param object  the {@link Object} to test, may be {@code null}
-     * @param defaultValue  the default value to return, may be {@code null}
+     * @param <T>          the type of the object
+     * @param object       the {@link Object} to test, may be {@code null}
+     * @param defaultValue the default value to return, may be {@code null}
      * @return {@code object} if it is not {@code null}, defaultValue otherwise
      * TODO Rename to getIfNull in 4.0
      */
@@ -614,8 +616,8 @@ public class ObjectUtils {
      * ObjectUtils.equals(Boolean.TRUE, Boolean.FALSE) = false
      * </pre>
      *
-     * @param object1  the first object, may be {@code null}
-     * @param object2  the second object, may be {@code null}
+     * @param object1 the first object, may be {@code null}
+     * @param object2 the second object, may be {@code null}
      * @return {@code true} if the values of both objects are the same
      * @deprecated this method has been replaced by {@code java.util.Objects.equals(Object, Object)} in Java 7 and will
      * be removed from future releases.
@@ -641,10 +643,10 @@ public class ObjectUtils {
      * ObjectUtils.firstNonNull()                = null
      * </pre>
      *
-     * @param <T> the component type of the array
-     * @param values  the values to test, may be {@code null} or empty
+     * @param <T>    the component type of the array
+     * @param values the values to test, may be {@code null} or empty
      * @return the first value from {@code values} which is not {@code null},
-     *  or {@code null} if there are no non-null values
+     * or {@code null} if there are no non-null values
      * @since 3.0
      */
     @SafeVarargs
@@ -655,7 +657,7 @@ public class ObjectUtils {
     /**
      * Delegates to {@link Object#getClass()} using generics.
      *
-     * @param <T> The argument type or null.
+     * @param <T>    The argument type or null.
      * @param object The argument.
      * @return The argument Class or null.
      * @since 3.13.0
@@ -681,12 +683,12 @@ public class ObjectUtils {
      * ObjectUtils.firstNonNullLazy() = null
      * </pre>
      *
-     * @param <T> the type of the return values
-     * @param suppliers  the suppliers returning the values to test.
-     *                   {@code null} values are ignored.
-     *                   Suppliers may return {@code null} or a value of type @{code T}
+     * @param <T>       the type of the return values
+     * @param suppliers the suppliers returning the values to test.
+     *                  {@code null} values are ignored.
+     *                  Suppliers may return {@code null} or a value of type @{code T}
      * @return the first return value from {@code suppliers} which is not {@code null},
-     *  or {@code null} if there are no non-null values
+     * or {@code null} if there are no non-null values
      * @since 3.10
      */
     @SafeVarargs
@@ -711,8 +713,8 @@ public class ObjectUtils {
      * ObjectUtils.getIfNull(Boolean.TRUE, *)         = Boolean.TRUE
      * </pre>
      *
-     * @param <T> the type of the object
-     * @param object the {@link Object} to test, may be {@code null}
+     * @param <T>             the type of the object
+     * @param object          the {@link Object} to test, may be {@code null}
      * @param defaultSupplier the default value to return, may be {@code null}
      * @return {@code object} if it is not {@code null}, {@code defaultValueSupplier.get()} otherwise
      * @since 3.10
@@ -730,7 +732,7 @@ public class ObjectUtils {
      * ObjectUtils.hashCode(obj)    = obj.hashCode()
      * </pre>
      *
-     * @param obj  the object to obtain the hash code of, may be {@code null}
+     * @param obj the object to obtain the hash code of, may be {@code null}
      * @return the hash code of the object, or zero if null
      * @since 2.1
      * @deprecated this method has been replaced by {@code java.util.Objects.hashCode(Object)} in Java 7 and will be
@@ -773,7 +775,7 @@ public class ObjectUtils {
      * ObjectUtils.hashCodeMulti(a,b,c)            = ((31 + a.hashCode()) * 31 + b.hashCode()) * 31 + c.hashCode()
      * </pre>
      *
-     * @param objects  the objects to obtain the hash code of, may be {@code null}
+     * @param objects the objects to obtain the hash code of, may be {@code null}
      * @return the hash code of the objects, or zero if null
      * @since 3.0
      * @deprecated this method has been replaced by {@code java.util.Objects.hash(Object...)} in Java 7 and will be
@@ -816,13 +818,13 @@ public class ObjectUtils {
      * ObjectUtils.identityToString(appendable, Boolean.TRUE)  = appendable.append("java.lang.Boolean@7fa")
      * </pre>
      *
-     * @param appendable  the appendable to append to
-     * @param object  the object to create a toString for
+     * @param appendable the appendable to append to
+     * @param object     the object to create a toString for
      * @throws IOException if an I/O error occurs.
      * @since 3.2
      */
     public static void identityToString(final Appendable appendable, final Object object) throws IOException {
-        Objects.requireNonNull(object, "object");
+        Objects.requireNonNull(object, OBJECT_STRING);
         appendable.append(object.getClass().getName())
               .append(AT_SIGN)
               .append(identityHashCodeHex(object));
@@ -839,10 +841,10 @@ public class ObjectUtils {
      * ObjectUtils.identityToString(Boolean.TRUE) = "java.lang.Boolean@7fa"
      * </pre>
      *
-     * @param object  the object to create a toString for, may be
-     *  {@code null}
+     * @param object the object to create a toString for, may be
+     *               {@code null}
      * @return the default toString text, or {@code null} if
-     *  {@code null} passed in
+     * {@code null} passed in
      */
     public static String identityToString(final Object object) {
         if (object == null) {
@@ -878,7 +880,7 @@ public class ObjectUtils {
      */
     @Deprecated
     public static void identityToString(final StrBuilder builder, final Object object) {
-        Objects.requireNonNull(object, "object");
+        Objects.requireNonNull(object, OBJECT_STRING);
         final String name = object.getClass().getName();
         final String hexString = identityHashCodeHex(object);
         builder.ensureCapacity(builder.length() +  name.length() + 1 + hexString.length());
@@ -903,7 +905,7 @@ public class ObjectUtils {
      * @since 2.4
      */
     public static void identityToString(final StringBuffer buffer, final Object object) {
-        Objects.requireNonNull(object, "object");
+        Objects.requireNonNull(object, OBJECT_STRING);
         final String name = object.getClass().getName();
         final String hexString = identityHashCodeHex(object);
         buffer.ensureCapacity(buffer.length() + name.length() + 1 + hexString.length());
@@ -928,7 +930,7 @@ public class ObjectUtils {
      * @since 3.2
      */
     public static void identityToString(final StringBuilder builder, final Object object) {
-        Objects.requireNonNull(object, "object");
+        Objects.requireNonNull(object, OBJECT_STRING);
         final String name = object.getClass().getName();
         final String hexString = identityHashCodeHex(object);
         builder.ensureCapacity(builder.length() +  name.length() + 1 + hexString.length());
@@ -1247,7 +1249,7 @@ public class ObjectUtils {
      * @since 3.12.0
      */
     public static <T> T  requireNonEmpty(final T obj) {
-        return requireNonEmpty(obj, "object");
+        return requireNonEmpty(obj, OBJECT_STRING);
     }
 
     /**

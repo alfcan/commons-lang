@@ -29,7 +29,14 @@ import org.apache.commons.lang3.Validate;
  */
 public class IEEE754rUtils {
 
-     /**
+    private static final String ARRAY_STRING = "array";
+
+    /**
+     * The error message to be used when an array is empty.
+     */
+    private static final String ARRAY_EMPTY_ERROR = "Array cannot be empty.";
+
+    /**
      * Returns the minimum value in an array.
      *
      * @param array  an array, must not be null or empty
@@ -39,8 +46,8 @@ public class IEEE754rUtils {
      * @since 3.4 Changed signature from min(double[]) to min(double...)
      */
     public static double min(final double... array) {
-        Objects.requireNonNull(array, "array");
-        Validate.isTrue(array.length != 0, "Array cannot be empty.");
+        Objects.requireNonNull(array, ARRAY_STRING);
+        Validate.isTrue(array.length != 0, ARRAY_EMPTY_ERROR);
 
         // Finds and returns min
         double min = array[0];
@@ -61,8 +68,8 @@ public class IEEE754rUtils {
      * @since 3.4 Changed signature from min(float[]) to min(float...)
      */
     public static float min(final float... array) {
-        Objects.requireNonNull(array, "array");
-        Validate.isTrue(array.length != 0, "Array cannot be empty.");
+        Objects.requireNonNull(array, ARRAY_STRING);
+        Validate.isTrue(array.length != 0, ARRAY_EMPTY_ERROR);
 
         // Finds and returns min
         float min = array[0];
@@ -149,8 +156,8 @@ public class IEEE754rUtils {
      * @since 3.4 Changed signature from max(double[]) to max(double...)
      */
     public static double max(final double... array) {
-        Objects.requireNonNull(array, "array");
-        Validate.isTrue(array.length != 0, "Array cannot be empty.");
+        Objects.requireNonNull(array, ARRAY_STRING);
+        Validate.isTrue(array.length != 0, ARRAY_EMPTY_ERROR);
 
         // Finds and returns max
         double max = array[0];
@@ -171,8 +178,8 @@ public class IEEE754rUtils {
      * @since 3.4 Changed signature from max(float[]) to max(float...)
      */
     public static float max(final float... array) {
-        Objects.requireNonNull(array, "array");
-        Validate.isTrue(array.length != 0, "Array cannot be empty.");
+        Objects.requireNonNull(array, ARRAY_STRING);
+        Validate.isTrue(array.length != 0, ARRAY_EMPTY_ERROR);
 
         // Finds and returns max
         float max = array[0];

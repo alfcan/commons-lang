@@ -30,6 +30,9 @@ import java.util.Objects;
 //@Immutable
 public class ClassPathUtils {
 
+    private static final String CONTEXT_STRING = "context";
+    private static final String RESOURCE_NAME_STRING = "resourceName";
+
     /**
      * Converts a package name to a Java path ('/').
      *
@@ -69,8 +72,8 @@ public class ClassPathUtils {
      * @throws NullPointerException if either {@code context} or {@code resourceName} is null.
      */
     public static String toFullyQualifiedName(final Class<?> context, final String resourceName) {
-        Objects.requireNonNull(context, "context");
-        Objects.requireNonNull(resourceName, "resourceName");
+        Objects.requireNonNull(context, CONTEXT_STRING);
+        Objects.requireNonNull(resourceName, RESOURCE_NAME_STRING);
         return toFullyQualifiedName(context.getPackage(), resourceName);
     }
 
@@ -91,8 +94,8 @@ public class ClassPathUtils {
      * @throws NullPointerException if either {@code context} or {@code resourceName} is null.
      */
     public static String toFullyQualifiedName(final Package context, final String resourceName) {
-        Objects.requireNonNull(context, "context");
-        Objects.requireNonNull(resourceName, "resourceName");
+        Objects.requireNonNull(context, CONTEXT_STRING);
+        Objects.requireNonNull(resourceName, RESOURCE_NAME_STRING);
         return context.getName() + "." + resourceName;
     }
 
@@ -113,8 +116,8 @@ public class ClassPathUtils {
      * @throws NullPointerException if either {@code context} or {@code resourceName} is null.
      */
     public static String toFullyQualifiedPath(final Class<?> context, final String resourceName) {
-        Objects.requireNonNull(context, "context");
-        Objects.requireNonNull(resourceName, "resourceName");
+        Objects.requireNonNull(context, CONTEXT_STRING);
+        Objects.requireNonNull(resourceName, RESOURCE_NAME_STRING);
         return toFullyQualifiedPath(context.getPackage(), resourceName);
     }
 
@@ -135,8 +138,8 @@ public class ClassPathUtils {
      * @throws NullPointerException if either {@code context} or {@code resourceName} is null.
      */
     public static String toFullyQualifiedPath(final Package context, final String resourceName) {
-        Objects.requireNonNull(context, "context");
-        Objects.requireNonNull(resourceName, "resourceName");
+        Objects.requireNonNull(context, CONTEXT_STRING);
+        Objects.requireNonNull(resourceName, RESOURCE_NAME_STRING);
         return packageToPath(context.getName()) + "/" + resourceName;
     }
 

@@ -36,6 +36,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 public class BooleanUtils {
 
     private static final List<Boolean> BOOLEAN_LIST = Collections.unmodifiableList(Arrays.asList(Boolean.FALSE, Boolean.TRUE));
+    private static final String ARRAY_STRING = "array";
 
     /**
      * The false String {@code "false"}.
@@ -98,7 +99,7 @@ public class BooleanUtils {
      * @since 3.0.1
      */
     public static boolean and(final boolean... array) {
-        ObjectUtils.requireNonEmpty(array, "array");
+        ObjectUtils.requireNonEmpty(array, ARRAY_STRING);
         for (final boolean element : array) {
             if (!element) {
                 return false;
@@ -130,7 +131,7 @@ public class BooleanUtils {
      * @since 3.0.1
      */
     public static Boolean and(final Boolean... array) {
-        ObjectUtils.requireNonEmpty(array, "array");
+        ObjectUtils.requireNonEmpty(array, ARRAY_STRING);
         return and(ArrayUtils.toPrimitive(array)) ? Boolean.TRUE : Boolean.FALSE;
     }
 
@@ -279,7 +280,7 @@ public class BooleanUtils {
      * @throws IllegalArgumentException if {@code array} is empty.
      */
     public static boolean oneHot(final boolean... array) {
-        ObjectUtils.requireNonEmpty(array, "array");
+        ObjectUtils.requireNonEmpty(array, ARRAY_STRING);
         boolean result = false;
         for (final boolean element: array) {
             if (element) {
@@ -332,7 +333,7 @@ public class BooleanUtils {
      * @since 3.0.1
      */
     public static boolean or(final boolean... array) {
-        ObjectUtils.requireNonEmpty(array, "array");
+        ObjectUtils.requireNonEmpty(array, ARRAY_STRING);
         for (final boolean element : array) {
             if (element) {
                 return true;
@@ -365,7 +366,7 @@ public class BooleanUtils {
      * @since 3.0.1
      */
     public static Boolean or(final Boolean... array) {
-        ObjectUtils.requireNonEmpty(array, "array");
+        ObjectUtils.requireNonEmpty(array, ARRAY_STRING);
         return or(ArrayUtils.toPrimitive(array)) ? Boolean.TRUE : Boolean.FALSE;
     }
 
@@ -1172,7 +1173,7 @@ public class BooleanUtils {
      * @throws IllegalArgumentException if {@code array} is empty.
      */
     public static boolean xor(final boolean... array) {
-        ObjectUtils.requireNonEmpty(array, "array");
+        ObjectUtils.requireNonEmpty(array, ARRAY_STRING);
         // false if the neutral element of the xor operator
         boolean result = false;
         for (final boolean element : array) {
@@ -1202,7 +1203,7 @@ public class BooleanUtils {
      * @throws IllegalArgumentException if {@code array} is empty.
      */
     public static Boolean xor(final Boolean... array) {
-        ObjectUtils.requireNonEmpty(array, "array");
+        ObjectUtils.requireNonEmpty(array, ARRAY_STRING);
         return xor(ArrayUtils.toPrimitive(array)) ? Boolean.TRUE : Boolean.FALSE;
     }
 

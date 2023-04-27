@@ -42,6 +42,14 @@ public final class Fraction extends Number implements Comparable<Fraction> {
     private static final long serialVersionUID = 65382027393090L;
 
     /**
+     * A constant string message indicating that the denominator must not be zero in a mathematical operation.
+     */
+    private static final String DENOMINATOR_ZERO_ERROR = "The denominator must not be zero";
+
+    private static final String FRACTION_STRING = "fraction";
+
+
+    /**
      * {@link Fraction} representation of 0.
      */
     public static final Fraction ZERO = new Fraction(0, 1);
@@ -139,7 +147,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
      */
     public static Fraction getFraction(int numerator, int denominator) {
         if (denominator == 0) {
-            throw new ArithmeticException("The denominator must not be zero");
+            throw new ArithmeticException(DENOMINATOR_ZERO_ERROR);
         }
         if (denominator < 0) {
             if (numerator == Integer.MIN_VALUE || denominator == Integer.MIN_VALUE) {
@@ -169,7 +177,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
      */
     public static Fraction getFraction(final int whole, final int numerator, final int denominator) {
         if (denominator == 0) {
-            throw new ArithmeticException("The denominator must not be zero");
+            throw new ArithmeticException(DENOMINATOR_ZERO_ERROR);
         }
         if (denominator < 0) {
             throw new ArithmeticException("The denominator must not be negative");
@@ -205,7 +213,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
      */
     public static Fraction getReducedFraction(int numerator, int denominator) {
         if (denominator == 0) {
-            throw new ArithmeticException("The denominator must not be zero");
+            throw new ArithmeticException(DENOMINATOR_ZERO_ERROR);
         }
         if (numerator == 0) {
             return ZERO; // normalize zero.
@@ -717,7 +725,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
      *   cannot be represented in an {@code int}.
      */
     private Fraction addSub(final Fraction fraction, final boolean isAdd) {
-        Objects.requireNonNull(fraction, "fraction");
+        Objects.requireNonNull(fraction, FRACTION_STRING);
         // zero is identity for addition.
         if (numerator == 0) {
             return isAdd ? fraction : fraction.negate();
@@ -765,7 +773,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
      *  {@code Integer.MAX_VALUE}
      */
     public Fraction multiplyBy(final Fraction fraction) {
-        Objects.requireNonNull(fraction, "fraction");
+        Objects.requireNonNull(fraction, FRACTION_STRING);
         if (numerator == 0 || fraction.numerator == 0) {
             return ZERO;
         }
@@ -788,7 +796,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
      *  {@code Integer.MAX_VALUE}
      */
     public Fraction divideBy(final Fraction fraction) {
-        Objects.requireNonNull(fraction, "fraction");
+        Objects.requireNonNull(fraction, FRACTION_STRING);
         if (fraction.numerator == 0) {
             throw new ArithmeticException("The fraction to divide by must not be zero");
         }
