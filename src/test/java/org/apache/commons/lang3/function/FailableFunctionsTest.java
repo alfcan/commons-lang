@@ -1338,7 +1338,7 @@ public class FailableFunctionsTest extends AbstractLangTest {
         assertTrue(cause instanceof SomeException);
         assertEquals("Odd Invocation: 1", cause.getMessage());
         final boolean instance = predicate.test(null);
-        assertNotNull(instance);
+        assertTrue(instance);
     }
 
     @Test
