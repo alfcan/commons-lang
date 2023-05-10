@@ -669,25 +669,6 @@
     </pluginManagement>
     <plugins>
       <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.7</version>
-        <executions>
-          <execution>
-            <id>prepare-agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>report</id>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
           <configuration>
             <source>${maven.compiler.source}</source>
@@ -953,6 +934,8 @@
         <jdk>[13,)</jdk>
       </activation>
       <properties>
+        <!-- jacoco does not work with java 13 yet -->
+        <jacoco.skip>true</jacoco.skip>
       </properties>
     </profile>
     <profile>
