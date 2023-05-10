@@ -70,6 +70,8 @@ public class NumberUtils {
     public static final Float FLOAT_ONE = Float.valueOf(1.0f);
     /** Reusable Float constant for minus one. */
     public static final Float FLOAT_MINUS_ONE = Float.valueOf(-1.0f);
+    private static final String INVALID_NUMBER_ERROR = " is not a valid number.";
+
 
     /**
      * {@link Integer#MAX_VALUE} as a {@link Long}.
@@ -708,7 +710,7 @@ public class NumberUtils {
         if (decPos > -1) { // there is a decimal point
             if (expPos > -1) { // there is an exponent
                 if (expPos < decPos || expPos > length) { // prevents double exponent causing IOOBE
-                    throw new NumberFormatException(str + " is not a valid number.");
+                    throw new NumberFormatException(str + INVALID_NUMBER_ERROR);
                 }
                 dec = str.substring(decPos + 1, expPos);
             } else {
@@ -719,7 +721,7 @@ public class NumberUtils {
         } else {
             if (expPos > -1) {
                 if (expPos > length) { // prevents double exponent causing IOOBE
-                    throw new NumberFormatException(str + " is not a valid number.");
+                    throw new NumberFormatException(str + INVALID_NUMBER_ERROR);
                 }
                 mant = getMantissa(str, expPos);
             } else {
@@ -750,7 +752,7 @@ public class NumberUtils {
                         return createBigInteger(numeric);
 
                     }
-                    throw new NumberFormatException(str + " is not a valid number.");
+                    throw new NumberFormatException(str + INVALID_NUMBER_ERROR);
                 case 'f' :
                 case 'F' :
                     try {
@@ -782,7 +784,7 @@ public class NumberUtils {
                     }
                     //$FALL-THROUGH$
                 default :
-                    throw new NumberFormatException(str + " is not a valid number.");
+                    throw new NumberFormatException(str + INVALID_NUMBER_ERROR);
 
             }
         }

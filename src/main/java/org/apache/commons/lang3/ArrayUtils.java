@@ -57,9 +57,16 @@ import org.apache.commons.lang3.stream.Streams;
 public class ArrayUtils {
 
     /**
+     * The error message format used for the IndexOutOfBoundsException when an invalid index is used.
+     * The format uses two placeholders, one for the index and one for the length of the array.
+     */
+    private static final String INDEX_OUT_OF_BOUNDS_ERROR = "Index: %s, Length: %s";
+
+    /**
      * An empty immutable {@code boolean} array.
      */
     public static final boolean[] EMPTY_BOOLEAN_ARRAY = {};
+
 
     /**
      * An empty immutable {@link Boolean} array.
@@ -649,7 +656,7 @@ public class ArrayUtils {
     private static Object add(final Object array, final int index, final Object element, final Class<?> clss) {
         if (array == null) {
             if (index != 0) {
-                throw new IndexOutOfBoundsException("Index: " + index + ", Length: 0");
+                throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, 0));
             }
             final Object joinedArray = Array.newInstance(clss, 1);
             Array.set(joinedArray, 0, element);
@@ -657,7 +664,7 @@ public class ArrayUtils {
         }
         final int length = Array.getLength(array);
         if (index > length || index < 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, length));
         }
         final Object result = Array.newInstance(clss, length + 1);
         System.arraycopy(array, 0, result, 0, index);
@@ -2788,7 +2795,7 @@ public class ArrayUtils {
             return clone(array);
         }
         if (index < 0 || index > array.length) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, array.length));
         }
 
         final boolean[] result = new boolean[array.length + values.length];
@@ -2830,7 +2837,7 @@ public class ArrayUtils {
             return clone(array);
         }
         if (index < 0 || index > array.length) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, array.length));
         }
 
         final byte[] result = new byte[array.length + values.length];
@@ -2872,7 +2879,7 @@ public class ArrayUtils {
             return clone(array);
         }
         if (index < 0 || index > array.length) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, array.length));
         }
 
         final char[] result = new char[array.length + values.length];
@@ -2914,7 +2921,7 @@ public class ArrayUtils {
             return clone(array);
         }
         if (index < 0 || index > array.length) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, array.length));
         }
 
         final double[] result = new double[array.length + values.length];
@@ -2956,7 +2963,7 @@ public class ArrayUtils {
             return clone(array);
         }
         if (index < 0 || index > array.length) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, array.length));
         }
 
         final float[] result = new float[array.length + values.length];
@@ -2998,7 +3005,7 @@ public class ArrayUtils {
             return clone(array);
         }
         if (index < 0 || index > array.length) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, array.length));
         }
 
         final int[] result = new int[array.length + values.length];
@@ -3040,7 +3047,7 @@ public class ArrayUtils {
             return clone(array);
         }
         if (index < 0 || index > array.length) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, array.length));
         }
 
         final long[] result = new long[array.length + values.length];
@@ -3082,7 +3089,7 @@ public class ArrayUtils {
             return clone(array);
         }
         if (index < 0 || index > array.length) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, array.length));
         }
 
         final short[] result = new short[array.length + values.length];
@@ -3134,7 +3141,7 @@ public class ArrayUtils {
             return clone(array);
         }
         if (index < 0 || index > array.length) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + array.length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, array.length));
         }
 
         final Class<T> type = getComponentType(array);
@@ -3548,7 +3555,7 @@ public class ArrayUtils {
         if (array1 == null || array2 == null) {
             throw new IllegalArgumentException("The Array must not be null");
         }
-        return array1.getClass().getName().equals(array2.getClass().getName());
+        return array1.getClass().isAssignableFrom(array2.getClass());
     }
 
     /**
@@ -4935,7 +4942,7 @@ public class ArrayUtils {
     private static Object remove(final Object array, final int index) {
         final int length = getLength(array);
         if (index < 0 || index >= length) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);
+            throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, length));
         }
 
         final Object result = Array.newInstance(array.getClass().getComponentType(), length - 1);
@@ -5312,7 +5319,7 @@ public class ArrayUtils {
             while (--i >= 0) {
                 final int index = clonedIndices[i];
                 if (index < 0 || index >= length) {
-                    throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);
+                    throw new IndexOutOfBoundsException(String.format(INDEX_OUT_OF_BOUNDS_ERROR, index, length));
                 }
                 if (index >= prevIndex) {
                     continue;

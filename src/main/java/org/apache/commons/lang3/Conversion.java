@@ -80,6 +80,11 @@ public class Conversion {
     private static final boolean[] FFFF = {false, false, false, false};
 
     /**
+     * Error message to use when encountering an invalid hexadecimal digit.
+     */
+    private static final String HEX_DIGIT_ERROR = "Cannot interpret '%s' as a hexadecimal digit";
+
+    /**
      * Converts a hexadecimal digit into an int using the default (Lsb0) bit ordering.
      *
      * <p>
@@ -93,7 +98,7 @@ public class Conversion {
     public static int hexDigitToInt(final char hexDigit) {
         final int digit = Character.digit(hexDigit, 16);
         if (digit < 0) {
-            throw new IllegalArgumentException("Cannot interpret '" + hexDigit + "' as a hexadecimal digit");
+            throw new IllegalArgumentException(String.format(HEX_DIGIT_ERROR, hexDigit));
         }
         return digit;
     }
@@ -150,7 +155,7 @@ public class Conversion {
         case 'F':
             return 0xF;
         default:
-            throw new IllegalArgumentException("Cannot interpret '" + hexDigit + "' as a hexadecimal digit");
+            throw new IllegalArgumentException(String.format(HEX_DIGIT_ERROR, hexDigit));
         }
     }
 
@@ -207,7 +212,7 @@ public class Conversion {
         case 'F':
             return TTTT.clone();
         default:
-            throw new IllegalArgumentException("Cannot interpret '" + hexDigit + "' as a hexadecimal digit");
+            throw new IllegalArgumentException(String.format(HEX_DIGIT_ERROR, hexDigit));
         }
     }
 
@@ -264,7 +269,7 @@ public class Conversion {
         case 'F':
             return TTTT.clone();
         default:
-            throw new IllegalArgumentException("Cannot interpret '" + hexDigit + "' as a hexadecimal digit");
+            throw new IllegalArgumentException(String.format(HEX_DIGIT_ERROR, hexDigit));
         }
     }
 

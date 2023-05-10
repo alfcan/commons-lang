@@ -36,6 +36,10 @@ import java.util.concurrent.ThreadLocalRandom;
 @Deprecated
 public class RandomUtils {
 
+    private static final String RANGE_ERROR = "Start value must be smaller or equal to end value.";
+    private static final String NON_NEGATIVE_ERROR = "Both range values must be non-negative.";
+
+
     /**
      * Generates a random boolean value.
      *
@@ -86,9 +90,8 @@ public class RandomUtils {
      * @return the random double
      */
     public static double nextDouble(final double startInclusive, final double endExclusive) {
-        Validate.isTrue(endExclusive >= startInclusive,
-                "Start value must be smaller or equal to end value.");
-        Validate.isTrue(startInclusive >= 0, "Both range values must be non-negative.");
+        Validate.isTrue(endExclusive >= startInclusive, RANGE_ERROR);
+        Validate.isTrue(startInclusive >= 0, NON_NEGATIVE_ERROR);
 
         if (startInclusive == endExclusive) {
             return startInclusive;
@@ -121,9 +124,8 @@ public class RandomUtils {
      * @return the random float
      */
     public static float nextFloat(final float startInclusive, final float endExclusive) {
-        Validate.isTrue(endExclusive >= startInclusive,
-                "Start value must be smaller or equal to end value.");
-        Validate.isTrue(startInclusive >= 0, "Both range values must be non-negative.");
+        Validate.isTrue(endExclusive >= startInclusive, RANGE_ERROR);
+        Validate.isTrue(startInclusive >= 0, NON_NEGATIVE_ERROR);
 
         if (startInclusive == endExclusive) {
             return startInclusive;
@@ -156,9 +158,8 @@ public class RandomUtils {
      * @return the random integer
      */
     public static int nextInt(final int startInclusive, final int endExclusive) {
-        Validate.isTrue(endExclusive >= startInclusive,
-                "Start value must be smaller or equal to end value.");
-        Validate.isTrue(startInclusive >= 0, "Both range values must be non-negative.");
+        Validate.isTrue(endExclusive >= startInclusive, RANGE_ERROR);
+        Validate.isTrue(startInclusive >= 0, NON_NEGATIVE_ERROR);
 
         if (startInclusive == endExclusive) {
             return startInclusive;
@@ -211,9 +212,8 @@ public class RandomUtils {
      * @return the random long
      */
     public static long nextLong(final long startInclusive, final long endExclusive) {
-        Validate.isTrue(endExclusive >= startInclusive,
-                "Start value must be smaller or equal to end value.");
-        Validate.isTrue(startInclusive >= 0, "Both range values must be non-negative.");
+        Validate.isTrue(endExclusive >= startInclusive, RANGE_ERROR);
+        Validate.isTrue(startInclusive >= 0, NON_NEGATIVE_ERROR);
 
         if (startInclusive == endExclusive) {
             return startInclusive;

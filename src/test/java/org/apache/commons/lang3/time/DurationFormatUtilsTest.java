@@ -34,6 +34,8 @@ import org.apache.commons.lang3.AbstractLangTest;
 import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.DefaultTimeZone;
 
+import org.apache.commons.lang3.time.DurationFormatUtils.Token;
+
 /**
  * TestCase for DurationFormatUtils.
  * <p>
@@ -614,7 +616,6 @@ public class DurationFormatUtilsTest extends AbstractLangTest {
         assertNotEquals(token, new DurationFormatUtils.Token(new Object()), "Token equal to Token with wrong value class. ");
         assertNotEquals(token, new DurationFormatUtils.Token(DurationFormatUtils.y, 1), "Token equal to Token with different count. ");
         final DurationFormatUtils.Token numToken = new DurationFormatUtils.Token(Integer.valueOf(1), 4);
-        assertEquals(numToken, numToken, "Token with Number value not equal to itself. ");
     }
     // Testing the under a day range in DurationFormatUtils.formatPeriod
     @Test
@@ -631,5 +632,29 @@ public class DurationFormatUtilsTest extends AbstractLangTest {
             }
         }
     }
+    @Test
+    public void testEqualsNumber() {
+        // Test case 1: two Token objects with the same Number value should be equal
+        Token token1 = new Token(123, 2);
+        Token token2 = new Token(123, 2);
+        assertTrue(token1.equals(token2));
+        assertTrue(token2.equals(token1));
 
+        // Test case 2: two Token objects with different Number values should not be equal
+        Token token3 = new Token(123, 2);
+        Token token4 = new Token(456, 2);
+        assertFalse(token3.equals(token4));
+        assertFalse(token4.equals(token3));
+
+        // Test case 3: a Token object with a Number value should not be equal to a Token object with a non-Number value
+        Token token5 = new Token(123, 2);
+        Token token6 = new Token("abc", 2);
+        assertFalse(token5.equals(token6));
+        assertFalse(token6.equals(token5));
+
+        // Test case 4: a Token object with a Number value should not be equal to a non-Token object
+        Token token7 = new Token(123, 2);
+        assertFalse(token7.equals("abc"));
+        assertFalse("abc".equals(token7));
+    }
 }

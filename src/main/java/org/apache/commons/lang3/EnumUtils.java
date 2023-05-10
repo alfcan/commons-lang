@@ -40,6 +40,7 @@ public class EnumUtils {
     private static final String ENUM_CLASS_MUST_BE_DEFINED = "EnumClass must be defined.";
     private static final String NULL_ELEMENTS_NOT_PERMITTED = "null elements not permitted";
     private static final String S_DOES_NOT_SEEM_TO_BE_AN_ENUM_TYPE = "%s does not seem to be an Enum type";
+    private static final String VALUES_STRING = "values";
 
     /**
      * Validate {@code enumClass}.
@@ -116,7 +117,7 @@ public class EnumUtils {
      */
     public static <E extends Enum<E>> long generateBitVector(final Class<E> enumClass, final Iterable<? extends E> values) {
         checkBitVectorable(enumClass);
-        Objects.requireNonNull(values, "values");
+        Objects.requireNonNull(values, VALUES_STRING);
         long total = 0;
         for (final E constant : values) {
             Objects.requireNonNull(constant, NULL_ELEMENTS_NOT_PERMITTED);
@@ -173,7 +174,7 @@ public class EnumUtils {
      */
     public static <E extends Enum<E>> long[] generateBitVectors(final Class<E> enumClass, final Iterable<? extends E> values) {
         asEnum(enumClass);
-        Objects.requireNonNull(values, "values");
+        Objects.requireNonNull(values, VALUES_STRING);
         final EnumSet<E> condensed = EnumSet.noneOf(enumClass);
         values.forEach(constant -> condensed.add(Objects.requireNonNull(constant, NULL_ELEMENTS_NOT_PERMITTED)));
         final long[] result = new long[(enumClass.getEnumConstants().length - 1) / Long.SIZE + 1];
@@ -408,7 +409,7 @@ public class EnumUtils {
      */
     public static <E extends Enum<E>> EnumSet<E> processBitVectors(final Class<E> enumClass, final long... values) {
         final EnumSet<E> results = EnumSet.noneOf(asEnum(enumClass));
-        final long[] lvalues = ArrayUtils.clone(Objects.requireNonNull(values, "values"));
+        final long[] lvalues = ArrayUtils.clone(Objects.requireNonNull(values, VALUES_STRING));
         ArrayUtils.reverse(lvalues);
         for (final E constant : enumClass.getEnumConstants()) {
             final int block = constant.ordinal() / Long.SIZE;
