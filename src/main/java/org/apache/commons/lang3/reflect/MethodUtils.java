@@ -64,6 +64,11 @@ public class MethodUtils {
     private static final Comparator<Method> METHOD_BY_SIGNATURE = Comparator.comparing(Method::toString);
 
     /**
+     * The error message prefix when a method is not accessible.
+     */
+    private static final String METHOD_NOT_ACCESSIBLE_ERROR = "No such accessible method: ";
+
+    /**
      * {@link MethodUtils} instances should NOT be constructed in standard programming.
      * Instead, the class should be used as
      * {@code MethodUtils.getAccessibleMethod(method)}.
@@ -216,7 +221,7 @@ public class MethodUtils {
                 method.setAccessible(true);
             }
         } else {
-            messagePrefix = "No such accessible method: ";
+            messagePrefix = METHOD_NOT_ACCESSIBLE_ERROR;
             method = getMatchingAccessibleMethod(cls, methodName, parameterTypes);
         }
 
@@ -329,7 +334,7 @@ public class MethodUtils {
         final Class<?> cls = object.getClass();
         final Method method = getAccessibleMethod(cls, methodName, parameterTypes);
         if (method == null) {
-            throw new NoSuchMethodException("No such accessible method: " + methodName + "() on object: " + cls.getName());
+            throw new NoSuchMethodException(METHOD_NOT_ACCESSIBLE_ERROR + methodName + "() on object: " + cls.getName());
         }
         return method.invoke(object, args);
     }
@@ -361,7 +366,7 @@ public class MethodUtils {
         parameterTypes = ArrayUtils.nullToEmpty(parameterTypes);
         final Method method = getAccessibleMethod(cls, methodName, parameterTypes);
         if (method == null) {
-            throw new NoSuchMethodException("No such accessible method: "
+            throw new NoSuchMethodException(METHOD_NOT_ACCESSIBLE_ERROR
                     + methodName + "() on class: " + cls.getName());
         }
         return method.invoke(null, args);
@@ -428,7 +433,7 @@ public class MethodUtils {
         final Method method = getMatchingAccessibleMethod(cls, methodName,
                 parameterTypes);
         if (method == null) {
-            throw new NoSuchMethodException("No such accessible method: "
+            throw new NoSuchMethodException(METHOD_NOT_ACCESSIBLE_ERROR
                     + methodName + "() on class: " + cls.getName());
         }
         args = toVarArgs(method, args);

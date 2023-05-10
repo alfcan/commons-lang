@@ -53,6 +53,7 @@ import org.apache.commons.lang3.LocaleUtils;
  * @since 2.0
  */
 public class DateUtils {
+    private static final String CALENDAR_STRING = "calendar";
 
     /**
      * Number of milliseconds in a standard second.
@@ -711,7 +712,7 @@ public class DateUtils {
      * @throws ArithmeticException if the year is over 280 million
      */
     public static Calendar round(final Calendar calendar, final int field) {
-        Objects.requireNonNull(calendar, "calendar");
+        Objects.requireNonNull(calendar, CALENDAR_STRING);
         return modify((Calendar) calendar.clone(), field, ModifyType.ROUND);
     }
 
@@ -857,7 +858,7 @@ public class DateUtils {
      * @since 2.5
      */
     public static Calendar ceiling(final Calendar calendar, final int field) {
-        Objects.requireNonNull(calendar, "calendar");
+        Objects.requireNonNull(calendar, CALENDAR_STRING);
         return modify((Calendar) calendar.clone(), field, ModifyType.CEILING);
     }
 
@@ -1090,7 +1091,7 @@ public class DateUtils {
      * @throws IllegalArgumentException if the rangeStyle is invalid
      */
     public static Iterator<Calendar> iterator(final Calendar calendar, final int rangeStyle) {
-        Objects.requireNonNull(calendar, "calendar");
+        Objects.requireNonNull(calendar, CALENDAR_STRING);
         final Calendar start;
         final Calendar end;
         int startCutoff = Calendar.SUNDAY;
@@ -1178,7 +1179,7 @@ public class DateUtils {
      * @throws ClassCastException if the object type is not a {@link Date} or {@link Calendar}
      */
     public static Iterator<?> iterator(final Object calendar, final int rangeStyle) {
-        Objects.requireNonNull(calendar, "calendar");
+        Objects.requireNonNull(calendar, CALENDAR_STRING);
         if (calendar instanceof Date) {
             return iterator((Date) calendar, rangeStyle);
         }
@@ -1596,7 +1597,7 @@ public class DateUtils {
      * @since 2.4
      */
     private static long getFragment(final Calendar calendar, final int fragment, final TimeUnit unit) {
-        Objects.requireNonNull(calendar, "calendar");
+        Objects.requireNonNull(calendar, CALENDAR_STRING);
         long result = 0;
         final int offset = (unit == TimeUnit.DAYS) ? 0 : 1;
 

@@ -140,6 +140,8 @@ public class StringUtils {
     // String.concat about twice as fast as StringBuffer.append
     // (not sure who tested this)
 
+    private static final String NULL_STRING_ERROR = "Strings must not be null";
+
     /**
      * A String for a space character.
      *
@@ -1858,7 +1860,7 @@ public class StringUtils {
      * {@code false} if {@code searchStrings} is null or contains no matches.
      * @since 3.5
      */
-    public static boolean equalsAnyIgnoreCase(final CharSequence string, final CharSequence...searchStrings) {
+    public static boolean equalsAnyIgnoreCase(final CharSequence string, final CharSequence... searchStrings) {
         if (ArrayUtils.isNotEmpty(searchStrings)) {
             for (final CharSequence next : searchStrings) {
                 if (equalsIgnoreCase(string, next)) {
@@ -2124,7 +2126,7 @@ public class StringUtils {
     @Deprecated
     public static int getFuzzyDistance(final CharSequence term, final CharSequence query, final Locale locale) {
         if (term == null || query == null) {
-            throw new IllegalArgumentException("Strings must not be null");
+            throw new IllegalArgumentException(NULL_STRING_ERROR);
         }
         if (locale == null) {
             throw new IllegalArgumentException("Locale must not be null");
@@ -2273,7 +2275,7 @@ public class StringUtils {
         final double DEFAULT_SCALING_FACTOR = 0.1;
 
         if (first == null || second == null) {
-            throw new IllegalArgumentException("Strings must not be null");
+            throw new IllegalArgumentException(NULL_STRING_ERROR);
         }
 
         final int[] mtp = matches(first, second);
@@ -2324,7 +2326,7 @@ public class StringUtils {
     @Deprecated
     public static int getLevenshteinDistance(CharSequence s, CharSequence t) {
         if (s == null || t == null) {
-            throw new IllegalArgumentException("Strings must not be null");
+            throw new IllegalArgumentException(NULL_STRING_ERROR);
         }
 
         int n = s.length();
@@ -2415,7 +2417,7 @@ public class StringUtils {
     @Deprecated
     public static int getLevenshteinDistance(CharSequence s, CharSequence t, final int threshold) {
         if (s == null || t == null) {
-            throw new IllegalArgumentException("Strings must not be null");
+            throw new IllegalArgumentException(NULL_STRING_ERROR);
         }
         if (threshold < 0) {
             throw new IllegalArgumentException("Threshold must not be negative");

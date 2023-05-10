@@ -40,6 +40,8 @@ import java.util.stream.Collectors;
 public class LocaleUtils {
     private static final char UNDERSCORE = '_';
     private static final char DASH = '-';
+    private static final String INVALID_LOCALE_FORMAT_ERROR = "Invalid locale format: ";
+
 
     // class to avoid synchronization (Init on demand)
     static class SyncAvoid {
@@ -248,7 +250,7 @@ public class LocaleUtils {
                 return new Locale(language, country, variant);
             }
         }
-        throw new IllegalArgumentException("Invalid locale format: " + str);
+        throw new IllegalArgumentException(INVALID_LOCALE_FORMAT_ERROR + str);
     }
 
     /**
@@ -302,30 +304,30 @@ public class LocaleUtils {
             return new Locale(StringUtils.EMPTY, StringUtils.EMPTY);
         }
         if (str.contains("#")) { // LANG-879 - Cannot handle Java 7 script & extensions
-            throw new IllegalArgumentException("Invalid locale format: " + str);
+            throw new IllegalArgumentException(INVALID_LOCALE_FORMAT_ERROR + str);
         }
         final int len = str.length();
         if (len < 2) {
-            throw new IllegalArgumentException("Invalid locale format: " + str);
+            throw new IllegalArgumentException(INVALID_LOCALE_FORMAT_ERROR + str);
         }
         final char ch0 = str.charAt(0);
         if (ch0 == UNDERSCORE || ch0 == DASH) {
             if (len < 3) {
-                throw new IllegalArgumentException("Invalid locale format: " + str);
+                throw new IllegalArgumentException(INVALID_LOCALE_FORMAT_ERROR + str);
             }
             final char ch1 = str.charAt(1);
             final char ch2 = str.charAt(2);
             if (!Character.isUpperCase(ch1) || !Character.isUpperCase(ch2)) {
-                throw new IllegalArgumentException("Invalid locale format: " + str);
+                throw new IllegalArgumentException(INVALID_LOCALE_FORMAT_ERROR + str);
             }
             if (len == 3) {
                 return new Locale(StringUtils.EMPTY, str.substring(1, 3));
             }
             if (len < 5) {
-                throw new IllegalArgumentException("Invalid locale format: " + str);
+                throw new IllegalArgumentException(INVALID_LOCALE_FORMAT_ERROR + str);
             }
             if (str.charAt(3) != ch0) {
-                throw new IllegalArgumentException("Invalid locale format: " + str);
+                throw new IllegalArgumentException(INVALID_LOCALE_FORMAT_ERROR + str);
             }
             return new Locale(StringUtils.EMPTY, str.substring(1, 3), str.substring(4));
         }
