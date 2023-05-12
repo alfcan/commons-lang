@@ -1770,7 +1770,8 @@ public class NumberUtils {
 
     private static boolean withDecimalsParsing(final String str, final int beginIdx) {
         int decimalPoints = 0;
-        for (int i = beginIdx; i < str.length(); i++) {
+        int n = str.length();
+        for (int i = beginIdx; i < n; i++) {
             final boolean isDecimalPoint = str.charAt(i) == '.';
             if (isDecimalPoint) {
                 decimalPoints++;
