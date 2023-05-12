@@ -997,7 +997,7 @@ public class ClassUtils {
             return StringUtils.EMPTY;
         }
 
-        final StringBuilder arrayPrefix = new StringBuilder();
+        final StringBuilder arrayPrefix = new StringBuilder(16);
 
         // Handle array encoding
         if (className.startsWith("[")) {
@@ -1503,7 +1503,7 @@ public class ClassUtils {
         String canonicalName = StringUtils.deleteWhitespace(className);
         Objects.requireNonNull(canonicalName, "className");
         if (canonicalName.endsWith("[]")) {
-            final StringBuilder classNameBuffer = new StringBuilder();
+            final StringBuilder classNameBuffer = new StringBuilder(32);
             while (canonicalName.endsWith("[]")) {
                 canonicalName = canonicalName.substring(0, canonicalName.length() - 2);
                 classNameBuffer.append("[");

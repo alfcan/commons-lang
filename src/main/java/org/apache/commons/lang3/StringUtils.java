@@ -3993,7 +3993,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -4143,7 +4143,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -4218,7 +4218,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -4293,7 +4293,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -4530,7 +4530,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -4731,7 +4731,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])

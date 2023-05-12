@@ -339,7 +339,7 @@ public class TypeUtils {
             return toString(cls.getComponentType()) + "[]";
         }
 
-        final StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder(16);
 
         if (cls.getEnclosingClass() != null) {
             buf.append(classToString(cls.getEnclosingClass())).append('.').append(cls.getSimpleName());
@@ -1582,7 +1582,7 @@ public class TypeUtils {
      * @since 3.2
      */
     private static String parameterizedTypeToString(final ParameterizedType parameterizedType) {
-        final StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder(16);
 
         final Type useOwner = parameterizedType.getOwnerType();
         final Class<?> raw = (Class<?>) parameterizedType.getRawType();
@@ -1691,7 +1691,7 @@ public class TypeUtils {
      */
     public static String toLongString(final TypeVariable<?> typeVariable) {
         Objects.requireNonNull(typeVariable, "typeVariable");
-        final StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder(16);
         final GenericDeclaration d = typeVariable.getGenericDeclaration();
         if (d instanceof Class<?>) {
             Class<?> c = (Class<?>) d;
@@ -1894,7 +1894,7 @@ public class TypeUtils {
      * @since 3.2
      */
     private static String wildcardTypeToString(final WildcardType wildcardType) {
-        final StringBuilder buf = new StringBuilder().append('?');
+        final StringBuilder buf = new StringBuilder(16).append('?');
         final Type[] lowerBounds = wildcardType.getLowerBounds();
         final Type[] upperBounds = wildcardType.getUpperBounds();
         if (lowerBounds.length > 1 || lowerBounds.length == 1 && lowerBounds[0] != null) {

@@ -335,7 +335,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
      * @return parsed token
      */
     protected String parseToken(final String pattern, final int[] indexRef) {
-        final StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder(16);
 
         int i = indexRef[0];
         final int length = pattern.length();
