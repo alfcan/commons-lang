@@ -251,7 +251,7 @@ public class FastDateParser implements DateParser, Serializable {
         private StrategyAndWidth literal() {
             boolean activeQuote = false;
 
-            final StringBuilder sb = new StringBuilder();
+            final StringBuilder sb = new StringBuilder(16);
             int nPattern = pattern.length();
             while (currentIdx < nPattern) {
                 final char c = pattern.charAt(currentIdx);
@@ -746,7 +746,7 @@ public class FastDateParser implements DateParser, Serializable {
             this.field = field;
             this.locale = LocaleUtils.toLocale(locale);
 
-            final StringBuilder regex = new StringBuilder();
+            final StringBuilder regex = new StringBuilder(16);
             regex.append("((?iu)");
             lKeyValues = appendDisplayNames(definingCalendar, locale, field, regex);
             regex.setLength(regex.length() - 1);
@@ -914,7 +914,7 @@ public class FastDateParser implements DateParser, Serializable {
         TimeZoneStrategy(final Locale locale) {
             this.locale = LocaleUtils.toLocale(locale);
 
-            final StringBuilder sb = new StringBuilder();
+            final StringBuilder sb = new StringBuilder(16);
             sb.append("((?iu)" + RFC_822_TIME_ZONE + "|" + GMT_OPTION);
 
             final Set<String> sorted = new TreeSet<>(LONGER_FIRST_LOWERCASE);

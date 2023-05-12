@@ -423,7 +423,7 @@ public class DurationFormatUtils {
      */
     static String format(final Token[] tokens, final long years, final long months, final long days, final long hours, final long minutes, final long seconds,
             final long milliseconds, final boolean padWithZeros) {
-        final StringBuilder buffer = new StringBuilder();
+        final StringBuilder buffer = new StringBuilder(16);
         boolean lastOutputSeconds = false;
         for (final Token token : tokens) {
             final Object value = token.getValue();
@@ -513,7 +513,7 @@ public class DurationFormatUtils {
                     buffer = null;
                     inLiteral = false;
                 } else {
-                    buffer = new StringBuilder();
+                    buffer = new StringBuilder(16);
                     list.add(new Token(buffer));
                     inLiteral = true;
                 }
@@ -541,7 +541,7 @@ public class DurationFormatUtils {
                 break;
             default:
                 if (buffer == null) {
-                    buffer = new StringBuilder();
+                    buffer = new StringBuilder(16);
                     list.add(new Token(buffer));
                 }
                 buffer.append(ch);
