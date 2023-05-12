@@ -2157,7 +2157,7 @@ public class StringUtils {
 
             boolean termCharacterMatchFound = false;
             int nLowerCase = termLowerCase.length();
-            for (; termIndex < n && !termCharacterMatchFound; termIndex++) {
+            for (; termIndex < nLowerCase && !termCharacterMatchFound; termIndex++) {
                 final char termChar = termLowerCase.charAt(termIndex);
 
                 if (queryChar == termChar) {
