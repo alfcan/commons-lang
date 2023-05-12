@@ -164,7 +164,8 @@ public class ExtendedMessageFormat extends MessageFormat {
         final ParsePosition pos = new ParsePosition(0);
         final char[] c = pattern.toCharArray();
         int fmtCount = 0;
-        while (pos.getIndex() < pattern.length()) {
+        int nPattern = pattern.length();
+        while (pos.getIndex() < nPattern) {
             switch (c[pos.getIndex()]) {
             case QUOTE:
                 appendQuotedString(pattern, pos, stripCustom);
@@ -336,7 +337,8 @@ public class ExtendedMessageFormat extends MessageFormat {
         seekNonWs(pattern, pos);
         final StringBuilder result = new StringBuilder(16);
         boolean error = false;
-        for (; !error && pos.getIndex() < pattern.length(); next(pos)) {
+        int nPattern = pattern.length();
+        for (; !error && pos.getIndex() < nPattern; next(pos)) {
             char c = pattern.charAt(pos.getIndex());
             if (Character.isWhitespace(c)) {
                 seekNonWs(pattern, pos);
@@ -378,7 +380,8 @@ public class ExtendedMessageFormat extends MessageFormat {
         seekNonWs(pattern, pos);
         final int text = pos.getIndex();
         int depth = 1;
-        for (; pos.getIndex() < pattern.length(); next(pos)) {
+        int nPattern = pattern.length();
+        for (; pos.getIndex() < nPattern; next(pos)) {
             switch (pattern.charAt(pos.getIndex())) {
             case START_FE:
                 depth++;
@@ -415,7 +418,8 @@ public class ExtendedMessageFormat extends MessageFormat {
         final ParsePosition pos = new ParsePosition(0);
         int fe = -1;
         int depth = 0;
-        while (pos.getIndex() < pattern.length()) {
+        int nPattern = pattern.length();
+        while (pos.getIndex() < nPattern) {
             final char c = pattern.charAt(pos.getIndex());
             switch (c) {
             case QUOTE:
@@ -492,7 +496,8 @@ public class ExtendedMessageFormat extends MessageFormat {
 
         final int start = pos.getIndex();
         final char[] c = pattern.toCharArray();
-        for (int i = pos.getIndex(); i < pattern.length(); i++) {
+        int nPattern = pattern.length();
+        for (int i = pos.getIndex(); i < nPattern; i++) {
             if (c[pos.getIndex()] == QUOTE) {
                 next(pos);
                 return appendTo == null ? null : appendTo.append(c, start,

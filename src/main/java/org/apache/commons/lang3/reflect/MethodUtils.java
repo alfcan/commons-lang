@@ -994,12 +994,14 @@ public class MethodUtils {
         int superClassIndex = 0;
         final List<Class<?>> allInterfaces = ClassUtils.getAllInterfaces(cls);
         int interfaceIndex = 0;
-        while (interfaceIndex < allInterfaces.size() ||
-                superClassIndex < allSuperclasses.size()) {
+        int sizeInterfaces = allInterfaces.size();
+        int sizeSuperclasses = allSuperclasses.size();
+        while (interfaceIndex <  sizeInterfaces ||
+                superClassIndex < sizeSuperclasses) {
             final Class<?> acls;
-            if (interfaceIndex >= allInterfaces.size()) {
+            if (interfaceIndex >= sizeInterfaces) {
                 acls = allSuperclasses.get(superClassIndex++);
-            } else if (superClassIndex >= allSuperclasses.size() || !(superClassIndex < interfaceIndex)) {
+            } else if (superClassIndex >= sizeSuperclasses || !(superClassIndex < interfaceIndex)) {
                 acls = allInterfaces.get(interfaceIndex++);
             } else {
                 acls = allSuperclasses.get(superClassIndex++);

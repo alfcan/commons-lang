@@ -237,7 +237,8 @@ public class FastDateParser implements DateParser, Serializable {
 
         private StrategyAndWidth letterPattern(final char c) {
             final int begin = currentIdx;
-            while (++currentIdx < pattern.length()) {
+            int nFormat = pattern.length();
+            while (++currentIdx < nFormat) {
                 if (pattern.charAt(currentIdx) != c) {
                     break;
                 }
@@ -251,7 +252,8 @@ public class FastDateParser implements DateParser, Serializable {
             boolean activeQuote = false;
 
             final StringBuilder sb = new StringBuilder(16);
-            while (currentIdx < pattern.length()) {
+            int nPattern = pattern.length();
+            while (currentIdx < nPattern) {
                 final char c = pattern.charAt(currentIdx);
                 if (!activeQuote && isFormatLetter(c)) {
                     break;
@@ -450,7 +452,8 @@ public class FastDateParser implements DateParser, Serializable {
     // Support for strategies
 
     private static StringBuilder simpleQuote(final StringBuilder sb, final String value) {
-        for (int i = 0; i < value.length(); ++i) {
+        int nValue = value.length();
+        for (int i = 0; i < nValue; ++i) {
             final char c = value.charAt(i);
             switch (c) {
             case '\\':
@@ -697,7 +700,8 @@ public class FastDateParser implements DateParser, Serializable {
         @Override
         boolean parse(final FastDateParser parser, final Calendar calendar, final String source,
             final ParsePosition pos, final int maxWidth) {
-            for (int idx = 0; idx < formatField.length(); ++idx) {
+            int nFormat = formatField.length();
+            for (int idx = 0; idx < nFormat; ++idx) {
                 final int sIdx = idx + pos.getIndex();
                 if (sIdx == source.length()) {
                     pos.setErrorIndex(sIdx);

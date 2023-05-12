@@ -498,7 +498,8 @@ public class DurationFormatUtils {
         // used internally, so cannot be accessed by other threads
         StringBuilder buffer = null;
         Token previous = null;
-        for (int i = 0; i < format.length(); i++) {
+        int nFormat = format.length();
+        for (int i = 0; i < nFormat; i++) {
             final char ch = format.charAt(i);
             if (inLiteral && ch != '\'') {
                 buffer.append(ch); // buffer can't be null if inLiteral is true
