@@ -103,7 +103,7 @@ public class MultilineRecursiveToStringStyle extends RecursiveToStringStyle {
      * @return a StringBuilder with {spaces} leading space characters.
      */
     private StringBuilder spacer(final int spaces) {
-        final StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder(16);
         for (int i = 0; i < spaces; i++) {
             sb.append(" ");
         }

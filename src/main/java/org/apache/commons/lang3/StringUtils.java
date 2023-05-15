@@ -1413,7 +1413,8 @@ public class StringUtils {
     }
 
     private static void convertRemainingAccentCharacters(final StringBuilder decomposed) {
-        for (int i = 0; i < decomposed.length(); i++) {
+        int n = decomposed.length();
+        for (int i = 0; i < n; i++) {
             if (decomposed.charAt(i) == '\u0141') {
                 decomposed.setCharAt(i, 'L');
             } else if (decomposed.charAt(i) == '\u0142') {
@@ -1447,7 +1448,8 @@ public class StringUtils {
         }
         int count = 0;
         // We could also call str.toCharArray() for faster lookups but that would generate more garbage.
-        for (int i = 0; i < str.length(); i++) {
+        int n = str.length();
+        for (int i = 0; i < n; i++) {
             if (ch == str.charAt(i)) {
                 count++;
             }
@@ -2149,11 +2151,13 @@ public class StringUtils {
         // index of the previously matched character in the term
         int previousMatchingCharacterIndex = Integer.MIN_VALUE;
 
-        for (int queryIndex = 0; queryIndex < queryLowerCase.length(); queryIndex++) {
+        int n = queryLowerCase.length();
+        for (int queryIndex = 0; queryIndex < n; queryIndex++) {
             final char queryChar = queryLowerCase.charAt(queryIndex);
 
             boolean termCharacterMatchFound = false;
-            for (; termIndex < termLowerCase.length() && !termCharacterMatchFound; termIndex++) {
+            int nLowerCase = termLowerCase.length();
+            for (; termIndex < nLowerCase && !termCharacterMatchFound; termIndex++) {
                 final char termChar = termLowerCase.charAt(termIndex);
 
                 if (queryChar == termChar) {
@@ -3070,7 +3074,9 @@ public class StringUtils {
             return 0;
         }
         int i;
-        for (i = 0; i < cs1.length() && i < cs2.length(); ++i) {
+        int n1 = cs1.length();
+        int n2 = cs2.length();
+        for (i = 0; i < n1 && i < n2; ++i) {
             if (cs1.charAt(i) != cs2.charAt(i)) {
                 break;
             }
@@ -3993,7 +3999,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -4143,7 +4149,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -4218,7 +4224,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -4293,7 +4299,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -4530,7 +4536,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -4731,7 +4737,7 @@ public class StringUtils {
         if (endIndex - startIndex <= 0) {
             return EMPTY;
         }
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder(16);
         for (int i = startIndex; i < endIndex; i++) {
             stringBuilder
                     .append(array[i])
@@ -5347,7 +5353,8 @@ public class StringUtils {
         Arrays.fill(matchIndexes, -1);
         final boolean[] matchFlags = new boolean[max.length()];
         int matches = 0;
-        for (int mi = 0; mi < min.length(); mi++) {
+        int n = min.length();
+        for (int mi = 0; mi < n; mi++) {
             final char c1 = min.charAt(mi);
             for (int xi = Math.max(mi - range, 0), xn = Math.min(mi + range + 1, max.length()); xi < xn; xi++) {
                 if (!matchFlags[xi] && c1 == max.charAt(xi)) {
@@ -5360,13 +5367,15 @@ public class StringUtils {
         }
         final char[] ms1 = new char[matches];
         final char[] ms2 = new char[matches];
-        for (int i = 0, si = 0; i < min.length(); i++) {
+        int nMinLength = min.length();
+        for (int i = 0, si = 0; i < nMinLength; i++) {
             if (matchIndexes[i] != -1) {
                 ms1[si] = min.charAt(i);
                 si++;
             }
         }
-        for (int i = 0, si = 0; i < max.length(); i++) {
+        int nMaxLength = max.length();
+        for (int i = 0, si = 0; i < nMaxLength; i++) {
             if (matchFlags[i]) {
                 ms2[si] = max.charAt(i);
                 si++;
@@ -5379,7 +5388,8 @@ public class StringUtils {
             }
         }
         int prefix = 0;
-        for (int mi = 0; mi < min.length(); mi++) {
+        int nMin = min.length();
+        for (int mi = 0; mi < nMin; mi++) {
             if (first.charAt(mi) != second.charAt(mi)) {
                 break;
             }

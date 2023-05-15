@@ -41,7 +41,7 @@ public class OctalUnescaper extends CharSequenceTranslator {
     @Override
     public int translate(final CharSequence input, final int index, final Writer out) throws IOException {
         final int remaining = input.length() - index - 1; // how many characters left, ignoring the first \
-        final StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder(16);
         if (input.charAt(index) == '\\' && remaining > 0 && isOctalDigit(input.charAt(index + 1)) ) {
             final int next = index + 1;
             final int next2 = index + 2;
