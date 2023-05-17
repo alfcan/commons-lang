@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package randoop.ThreadUtils
+package randoop.ThreadUtils;
 
 import org.junit.FixMethodOrder;
 import org.junit.Test;
