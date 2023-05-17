@@ -118,7 +118,7 @@ public class ArchUtilsTest extends AbstractLangTest {
         }
     }
 
-    /*@Test
+    @Test
     public void testGetProcessor() {
         assertNotNull(ArchUtils.getProcessor(X86));
         assertNull(ArchUtils.getProcessor("NA"));
@@ -127,7 +127,7 @@ public class ArchUtilsTest extends AbstractLangTest {
         final Processor processor = ArchUtils.getProcessor();
         assertTrue(processor.isX86());
         assertNotEquals(ObjectUtils.identityToString(processor), processor.toString());
-    }*/
+    }
 
     @Test
     public void testIs32BitJVM() {
