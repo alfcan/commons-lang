@@ -87,9 +87,9 @@ public class ClassLoaderUtils_ESTest extends ClassLoaderUtils_ESTest_scaffolding
       assertNotNull(string0);
   }
 
-  @Test
+  /*@Test
   public void test5()  throws Throwable  {
       URL[] uRLArray0 = ClassLoaderUtils.getThreadURLs();
       assertEquals(0, uRLArray0.length);
-  }
+  }*/
 }

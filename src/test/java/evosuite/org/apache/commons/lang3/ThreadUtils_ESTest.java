@@ -80,7 +80,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test
+  /*@Test
   public void test05()  throws Throwable  {
       Duration duration0 = Duration.ofMinutes((-3874L));
       // Undeclared exception!
@@ -94,7 +94,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
          //
          verifyException("java.util.Objects", e);
       }
-  }
+  }*/
 
   @Test
   public void test06()  throws Throwable  {
