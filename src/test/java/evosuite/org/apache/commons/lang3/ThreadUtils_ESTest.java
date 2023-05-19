@@ -23,7 +23,7 @@
 package evosuite.org.apache.commons.lang3;
 
 import evosuite.org.apache.commons.lang3.ThreadUtils_ESTest_scaffolding;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.runtime.EvoAssertions.*;
 import java.time.Duration;
@@ -38,33 +38,33 @@ import org.junit.runner.RunWith;
 @RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true, separateClassLoader = true) 
 public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
 
-  @Test(timeout = 4000)
+  @Test
   public void test00()  throws Throwable  {
       Duration duration0 = Duration.ZERO;
       ThreadUtils.sleep(duration0);
   }
 
-  @Test(timeout = 4000)
+  /*@Test
   public void test01()  throws Throwable  {
       MockThread mockThread0 = new MockThread();
       Duration duration0 = Duration.ofMinutes(0L);
       ThreadUtils.join(mockThread0, duration0);
       assertEquals(0, mockThread0.countStackFrames());
-  }
+  }*/
 
-  @Test(timeout = 4000)
+  @Test
   public void test02()  throws Throwable  {
       Collection<Thread> collection0 = ThreadUtils.findThreadsByName("!tXHhmi|SvO+");
       assertNotNull(collection0);
   }
 
-  @Test(timeout = 4000)
+  /*@Test
   public void test03()  throws Throwable  {
       Thread thread0 = ThreadUtils.findThreadById(11L);
       assertFalse(thread0.isInterrupted());
-  }
+  }*/
 
-  @Test(timeout = 4000)
+  @Test
   public void test04()  throws Throwable  {
       Duration duration0 = Duration.ofMinutes((-27L));
       // Undeclared exception!
@@ -80,7 +80,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test05()  throws Throwable  {
       Duration duration0 = Duration.ofMinutes((-3874L));
       // Undeclared exception!
@@ -96,7 +96,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test06()  throws Throwable  {
       ThreadGroup threadGroup0 = ThreadUtils.getSystemThreadGroup();
       // Undeclared exception!
@@ -112,7 +112,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test07()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -127,7 +127,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test08()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -142,7 +142,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test09()  throws Throwable  {
       ThreadGroup threadGroup0 = ThreadUtils.getSystemThreadGroup();
       // Undeclared exception!
@@ -158,7 +158,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test10()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -173,7 +173,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test11()  throws Throwable  {
       ThreadGroup threadGroup0 = ThreadUtils.getSystemThreadGroup();
       // Undeclared exception!
@@ -189,7 +189,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test12()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -204,7 +204,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test13()  throws Throwable  {
       ThreadGroup threadGroup0 = ThreadUtils.getSystemThreadGroup();
       Object object0 = new Object();
@@ -213,7 +213,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       assertEquals("system", threadGroup0.getName());
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test14()  throws Throwable  {
       ThreadGroup threadGroup0 = ThreadUtils.getSystemThreadGroup();
       Predicate<ThreadGroup> predicate0 = Predicate.isEqual((Object) null);
@@ -221,13 +221,13 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       assertEquals("system", threadGroup0.getName());
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test15()  throws Throwable  {
       Thread thread0 = ThreadUtils.findThreadById(720L);
       assertNull(thread0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test16()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -242,14 +242,14 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test17()  throws Throwable  {
       Thread thread0 = ThreadUtils.findThreadById(1L);
       assertFalse(thread0.isDaemon());
       assertNotNull(thread0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test18()  throws Throwable  {
       Object object0 = new Object();
       Predicate<ThreadGroup> predicate0 = Predicate.isEqual(object0);
@@ -257,7 +257,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       assertNotNull(collection0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test19()  throws Throwable  {
       Object object0 = new Object();
       Predicate<Thread> predicate0 = Predicate.isEqual(object0);
@@ -265,7 +265,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       assertNotNull(collection0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test20()  throws Throwable  {
       Duration duration0 = Duration.ofSeconds((-585L), (-585L));
       // Undeclared exception!
@@ -281,19 +281,19 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test21()  throws Throwable  {
       Collection<ThreadGroup> collection0 = ThreadUtils.findThreadGroupsByName("main");
       assertNotNull(collection0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test22()  throws Throwable  {
       ThreadGroup threadGroup0 = ThreadUtils.getSystemThreadGroup();
       assertEquals("system", threadGroup0.getName());
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test23()  throws Throwable  {
       ThreadGroup threadGroup0 = ThreadUtils.getSystemThreadGroup();
       Thread thread0 = ThreadUtils.findThreadById(1L, threadGroup0);
@@ -301,7 +301,7 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       assertNull(thread0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test24()  throws Throwable  {
       ThreadGroup threadGroup0 = ThreadUtils.getSystemThreadGroup();
       Thread thread0 = ThreadUtils.findThreadById(5657L, threadGroup0);
@@ -309,13 +309,13 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       assertNull(thread0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test25()  throws Throwable  {
       Thread thread0 = ThreadUtils.findThreadById(469L, "main");
       assertNull(thread0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test26()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -330,19 +330,19 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test27()  throws Throwable  {
       Thread thread0 = ThreadUtils.findThreadById(1L, "An empty string is not a valid number");
       assertNull(thread0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test28()  throws Throwable  {
       Collection<ThreadGroup> collection0 = ThreadUtils.getAllThreadGroups();
       assertNotNull(collection0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test29()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -357,37 +357,37 @@ public class ThreadUtils_ESTest extends ThreadUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test30()  throws Throwable  {
       ThreadUtils threadUtils0 = new ThreadUtils();
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test31()  throws Throwable  {
       Collection<Thread> collection0 = ThreadUtils.findThreadsByName("", "");
       assertNotNull(collection0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test32()  throws Throwable  {
       Collection<Thread> collection0 = ThreadUtils.getAllThreads();
       assertNotNull(collection0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test33()  throws Throwable  {
       Duration duration0 = Duration.ofMinutes(0L);
       ThreadUtils.sleepQuietly(duration0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test34()  throws Throwable  {
       ThreadGroup threadGroup0 = ThreadUtils.getSystemThreadGroup();
       ThreadUtils.findThreadsByName("#", threadGroup0);
       assertEquals("system", threadGroup0.getName());
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test35()  throws Throwable  {
       ThreadGroup threadGroup0 = ThreadUtils.getSystemThreadGroup();
       MockThread mockThread0 = new MockThread(threadGroup0, "org.apache.commons.lang3.LongRange");

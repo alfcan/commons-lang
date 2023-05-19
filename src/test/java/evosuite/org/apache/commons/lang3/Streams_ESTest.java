@@ -23,7 +23,7 @@
 package evosuite.org.apache.commons.lang3;
 
 import evosuite.org.apache.commons.lang3.Streams_ESTest_scaffolding;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 import java.util.stream.Collector;
 import org.apache.commons.lang3.Streams;
@@ -34,14 +34,14 @@ import org.junit.runner.RunWith;
 @RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true, separateClassLoader = true) 
 public class Streams_ESTest extends Streams_ESTest_scaffolding {
 
-  @Test(timeout = 4000)
+  @Test
   public void test0()  throws Throwable  {
       Class<Object> class0 = Object.class;
       Collector<Object, ?, Object[]> collector0 = Streams.toArray(class0);
       assertNotNull(collector0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test1()  throws Throwable  {
       Streams streams0 = new Streams();
   }

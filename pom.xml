@@ -583,6 +583,12 @@
           <scope>test</scope>
       </dependency>
     <dependency>
+      <groupId>org.evosuite</groupId>
+      <artifactId>evosuite-standalone-runtime</artifactId>
+      <version>1.0.6</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.13.2</version>
@@ -719,7 +725,7 @@
             <id>plain</id>
             <configuration>
               <includes>
-                <include>**/*Test.java</include>
+                <include>**/*Test*.java</include>
               </includes>
               <runOrder>random</runOrder>
             </configuration>
@@ -947,7 +953,7 @@
       </activation>
       <properties>
         <!-- jacoco does not work with java 13 yet -->
-        <jacoco.skip>true</jacoco.skip>
+        <jacoco.skip>false</jacoco.skip>
       </properties>
     </profile>
     <profile>
