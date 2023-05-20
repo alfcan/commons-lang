@@ -1,0 +1,526 @@
+<!--
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements.  See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to You under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License.  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="UTF-8"/>
+      <title>SpotBugs Report</title>
+      <style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+
+		.tablerow0:hover, .tablerow1:hover {
+			background: #aaffaa;
+		}
+
+		.priority-1 {
+				color: red;
+				font-weight: bold;
+		}
+		.priority-2 {
+				color: orange;
+				font-weight: bold;
+		}
+		.priority-3 {
+				color: green;
+				font-weight: bold;
+		}
+		.priority-4 {
+				color: blue;
+				font-weight: bold;
+		}
+		</style>
+      <script type="text/javascript">
+			function toggleRow(elid) {
+				if (document.getElementById) {
+					element = document.getElementById(elid);
+					if (element) {
+						if (element.style.display == 'none') {
+							element.style.display = 'block';
+							//window.status = 'Toggle on!';
+						} else {
+							element.style.display = 'none';
+							//window.status = 'Toggle off!';
+						}
+					}
+				}
+			}
+		</script>
+   </head>
+   <body>
+      <h1>
+         <a href="https://spotbugs.github.io/">SpotBugs</a> Report</h1>
+      <h2>Project Information</h2>
+      <p>Project: 
+		</p>
+      <p>SpotBugs version: 4.6.0</p>
+      <p>Code analyzed:</p>
+      <ul>
+         <li>C:\Users\kevin\OneDrive\Desktop\Workspace\commons-lang-master</li>
+      </ul>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Metrics</h2>
+      <p>76640 lines of code analyzed,
+	in 1099 classes, 
+	in 21 packages.</p>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Metric</th>
+            <th align="right">Total</th>
+            <th align="right">Density*</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>High Priority Warnings</td>
+            <td align="right">2</td>
+            <td align="right">0.03</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>Medium Priority Warnings</td>
+            <td align="right">11</td>
+            <td align="right">0.14</td>
+         </tr>
+         <tr class="$totalClass">
+            <td>
+               <b>Total Warnings</b>
+            </td>
+            <td align="right">
+               <b>13</b>
+            </td>
+            <td align="right">
+               <b>0.17</b>
+            </td>
+         </tr>
+      </table>
+      <p>
+         <i>(* Defects per Thousand lines of non-commenting source statements)</i>
+      </p>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Contents</h2>
+      <ul>
+         <li>
+            <a href="#Warnings_SECURITY">Security Warnings</a>
+         </li>
+         <li>
+            <a href="#Details">Details</a>
+         </li>
+      </ul>
+      <h1>Summary</h1>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Warning Type</th>
+            <th align="right">Number</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <a href="#Warnings_SECURITY">Security Warnings</a>
+            </td>
+            <td align="right">13</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
+               <b>Total</b>
+            </td>
+            <td align="right">
+               <b>13</b>
+            </td>
+         </tr>
+      </table>
+      <h1>Warnings</h1>
+      <p>Click on a warning row to see full context information.</p>
+      <h2>
+         <a name="Warnings_SECURITY">Security Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e314');">
+            <td>
+               <span class="priority-2">ERRMSG</span>
+            </td>
+            <td>Possible information exposure through an error message</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e314" style="display: none;">
+                  <a href="#INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE">Bug type INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.exception.ExceptionUtils<br/>In method org.apache.commons.lang3.exception.ExceptionUtils.getStackTrace(Throwable)<br/>At ExceptionUtils.java:[line 385]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e61');">
+            <td>
+               <span class="priority-1">SECOBDES</span>
+            </td>
+            <td>Object deserialization is used in org.apache.commons.lang3.SerializationUtils.clone(Serializable)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e61" style="display: none;">
+                  <a href="#OBJECT_DESERIALIZATION">Bug type OBJECT_DESERIALIZATION (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.SerializationUtils<br/>In method org.apache.commons.lang3.SerializationUtils.clone(Serializable)<br/>At SerializationUtils.java:[line 148]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e73');">
+            <td>
+               <span class="priority-1">SECOBDES</span>
+            </td>
+            <td>Object deserialization is used in org.apache.commons.lang3.SerializationUtils.deserialize(InputStream)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e73" style="display: none;">
+                  <a href="#OBJECT_DESERIALIZATION">Bug type OBJECT_DESERIALIZATION (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.SerializationUtils<br/>In method org.apache.commons.lang3.SerializationUtils.deserialize(InputStream)<br/>At SerializationUtils.java:[line 208]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e5');">
+            <td>
+               <span class="priority-2">SECPR</span>
+            </td>
+            <td>This random generator (java.util.concurrent.ThreadLocalRandom) is predictable</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e5" style="display: none;">
+                  <a href="#PREDICTABLE_RANDOM">Bug type PREDICTABLE_RANDOM (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.ArrayUtils<br/>In method org.apache.commons.lang3.ArrayUtils.random()<br/>At ArrayUtils.java:[line 4685]<br/>Value java.util.concurrent.ThreadLocalRandom</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e19');">
+            <td>
+               <span class="priority-2">SECPR</span>
+            </td>
+            <td>This random generator (java.util.concurrent.ThreadLocalRandom) is predictable</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e19" style="display: none;">
+                  <a href="#PREDICTABLE_RANDOM">Bug type PREDICTABLE_RANDOM (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.RandomStringUtils<br/>In method org.apache.commons.lang3.RandomStringUtils.random()<br/>At RandomStringUtils.java:[line 53]<br/>Value java.util.concurrent.ThreadLocalRandom</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e33');">
+            <td>
+               <span class="priority-2">SECPR</span>
+            </td>
+            <td>This random generator (java.util.Random) is predictable</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e33" style="display: none;">
+                  <a href="#PREDICTABLE_RANDOM">Bug type PREDICTABLE_RANDOM (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.RandomStringUtilsTest$1<br/>In method new org.apache.commons.lang3.RandomStringUtilsTest$1(RandomStringUtilsTest)<br/>At RandomStringUtilsTest.java:[line 522]<br/>Value java.util.Random</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e47');">
+            <td>
+               <span class="priority-2">SECPR</span>
+            </td>
+            <td>This random generator (java.util.concurrent.ThreadLocalRandom) is predictable</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e47" style="display: none;">
+                  <a href="#PREDICTABLE_RANDOM">Bug type PREDICTABLE_RANDOM (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.RandomUtils<br/>In method org.apache.commons.lang3.RandomUtils.random()<br/>At RandomUtils.java:[line 226]<br/>Value java.util.concurrent.ThreadLocalRandom</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e286');">
+            <td>
+               <span class="priority-2">SECPR</span>
+            </td>
+            <td>This random generator (java.util.Random) is predictable</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e286" style="display: none;">
+                  <a href="#PREDICTABLE_RANDOM">Bug type PREDICTABLE_RANDOM (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient<br/>In method new org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient(ReflectionToStringBuilderMutateInspectConcurrencyTest, ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture)<br/>At ReflectionToStringBuilderMutateInspectConcurrencyTest.java:[line 64]<br/>Value java.util.Random</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e300');">
+            <td>
+               <span class="priority-2">SECPR</span>
+            </td>
+            <td>This random generator (java.util.Random) is predictable</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e300" style="display: none;">
+                  <a href="#PREDICTABLE_RANDOM">Bug type PREDICTABLE_RANDOM (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture<br/>In method new org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture(ReflectionToStringBuilderMutateInspectConcurrencyTest)<br/>At ReflectionToStringBuilderMutateInspectConcurrencyTest.java:[line 42]<br/>Value java.util.Random</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e85');">
+            <td>
+               <span class="priority-2">SECPTI</span>
+            </td>
+            <td>This API (java/io/File.&lt;init&gt;(Ljava/lang/String;)V) reads a file whose location might be specified by user input</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e85" style="display: none;">
+                  <a href="#PATH_TRAVERSAL_IN">Bug type PATH_TRAVERSAL_IN (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.SystemUtils<br/>In method org.apache.commons.lang3.SystemUtils.getJavaHome()<br/>At SystemUtils.java:[line 1869]<br/>Sink method java/io/File.&lt;init&gt;(Ljava/lang/String;)V<br/>Sink parameter 0<br/>Unknown source java/lang/System.getProperty(Ljava/lang/String;)Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/StringUtils.getIfEmpty(Ljava/lang/CharSequence;Ljava/util/function/Supplier;)Ljava/lang/CharSequence; parameter 1<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;)Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String; parameter 1<br/>Unknown source org/apache/commons/lang3/StringUtils.getIfEmpty(Ljava/lang/CharSequence;Ljava/util/function/Supplier;)Ljava/lang/CharSequence;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;)Ljava/lang/String; parameter 0<br/>Unknown source java/util/function/Supplier.get()Ljava/lang/Object;<br/>Unknown source org/apache/commons/lang3/function/Suppliers.get(Ljava/util/function/Supplier;)Ljava/lang/Object;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getJavaHome()Ljava/lang/String;<br/>At StringUtils.java:[line 2239]<br/>At SystemProperties.java:[line 402]<br/>At SystemProperties.java:[line 691]<br/>At SystemProperties.java:[line 709]<br/>At SystemProperties.java:[line 710]<br/>At SystemUtils.java:[line 1869]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e135');">
+            <td>
+               <span class="priority-2">SECPTI</span>
+            </td>
+            <td>This API (java/io/File.&lt;init&gt;(Ljava/lang/String;)V) reads a file whose location might be specified by user input</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e135" style="display: none;">
+                  <a href="#PATH_TRAVERSAL_IN">Bug type PATH_TRAVERSAL_IN (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.SystemUtils<br/>In method org.apache.commons.lang3.SystemUtils.getJavaIoTmpDir()<br/>At SystemUtils.java:[line 1882]<br/>Sink method java/io/File.&lt;init&gt;(Ljava/lang/String;)V<br/>Sink parameter 0<br/>Unknown source java/lang/System.getProperty(Ljava/lang/String;)Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/StringUtils.getIfEmpty(Ljava/lang/CharSequence;Ljava/util/function/Supplier;)Ljava/lang/CharSequence; parameter 1<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;)Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String; parameter 1<br/>Unknown source org/apache/commons/lang3/SystemProperties.getJavaIoTmpdir()Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/StringUtils.getIfEmpty(Ljava/lang/CharSequence;Ljava/util/function/Supplier;)Ljava/lang/CharSequence;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;)Ljava/lang/String; parameter 0<br/>Unknown source java/util/function/Supplier.get()Ljava/lang/Object;<br/>Unknown source org/apache/commons/lang3/function/Suppliers.get(Ljava/util/function/Supplier;)Ljava/lang/Object;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;<br/>At StringUtils.java:[line 2239]<br/>At SystemProperties.java:[line 414]<br/>At SystemProperties.java:[line 691]<br/>At SystemProperties.java:[line 709]<br/>At SystemProperties.java:[line 710]<br/>At SystemUtils.java:[line 1882]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e185');">
+            <td>
+               <span class="priority-2">SECPTI</span>
+            </td>
+            <td>This API (java/io/File.&lt;init&gt;(Ljava/lang/String;)V) reads a file whose location might be specified by user input</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e185" style="display: none;">
+                  <a href="#PATH_TRAVERSAL_IN">Bug type PATH_TRAVERSAL_IN (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.SystemUtils<br/>In method org.apache.commons.lang3.SystemUtils.getUserDir()<br/>At SystemUtils.java:[line 1926]<br/>Sink method java/io/File.&lt;init&gt;(Ljava/lang/String;)V<br/>Sink parameter 0<br/>Unknown source java/lang/System.getProperty(Ljava/lang/String;)Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/StringUtils.getIfEmpty(Ljava/lang/CharSequence;Ljava/util/function/Supplier;)Ljava/lang/CharSequence; parameter 1<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;)Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String; parameter 1<br/>Unknown source org/apache/commons/lang3/StringUtils.getIfEmpty(Ljava/lang/CharSequence;Ljava/util/function/Supplier;)Ljava/lang/CharSequence;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;)Ljava/lang/String; parameter 0<br/>Unknown source java/util/function/Supplier.get()Ljava/lang/Object;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getUserDir()Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/function/Suppliers.get(Ljava/util/function/Supplier;)Ljava/lang/Object;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;<br/>At StringUtils.java:[line 2239]<br/>At SystemProperties.java:[line 691]<br/>At SystemProperties.java:[line 709]<br/>At SystemProperties.java:[line 710]<br/>At SystemProperties.java:[line 741]<br/>At SystemUtils.java:[line 1926]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e235');">
+            <td>
+               <span class="priority-2">SECPTI</span>
+            </td>
+            <td>This API (java/io/File.&lt;init&gt;(Ljava/lang/String;)V) reads a file whose location might be specified by user input</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e235" style="display: none;">
+                  <a href="#PATH_TRAVERSAL_IN">Bug type PATH_TRAVERSAL_IN (click for details)</a>
+                  <br/>In class org.apache.commons.lang3.SystemUtils<br/>In method org.apache.commons.lang3.SystemUtils.getUserHome()<br/>At SystemUtils.java:[line 1939]<br/>Sink method java/io/File.&lt;init&gt;(Ljava/lang/String;)V<br/>Sink parameter 0<br/>Unknown source java/lang/System.getProperty(Ljava/lang/String;)Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/StringUtils.getIfEmpty(Ljava/lang/CharSequence;Ljava/util/function/Supplier;)Ljava/lang/CharSequence; parameter 1<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;)Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String; parameter 1<br/>Unknown source org/apache/commons/lang3/SystemProperties.getUserHome()Ljava/lang/String;<br/>Unknown source org/apache/commons/lang3/StringUtils.getIfEmpty(Ljava/lang/CharSequence;Ljava/util/function/Supplier;)Ljava/lang/CharSequence;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;)Ljava/lang/String; parameter 0<br/>Unknown source java/util/function/Supplier.get()Ljava/lang/Object;<br/>Unknown source org/apache/commons/lang3/function/Suppliers.get(Ljava/util/function/Supplier;)Ljava/lang/Object;<br/>Unknown source org/apache/commons/lang3/SystemProperties.getProperty(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;<br/>At StringUtils.java:[line 2239]<br/>At SystemProperties.java:[line 691]<br/>At SystemProperties.java:[line 709]<br/>At SystemProperties.java:[line 710]<br/>At SystemProperties.java:[line 753]<br/>At SystemUtils.java:[line 1939]</p>
+            </td>
+         </tr>
+      </table>
+      <h1>
+         <a name="Details">Details</a>
+      </h1>
+      <h2>
+         <a name="INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE">INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE: Information Exposure Through An Error Message</a>
+      </h2>
+            
+<p>
+The sensitive information may be valuable information on its own (such as a password), or it may be useful for launching other, more deadly attacks. If an attack fails, an attacker may use error information provided by the server to launch another more focused attack. For example, an attempt to exploit a path traversal weakness (CWE-22) might yield the full pathname of the installed application. In turn, this could be used to select the proper number of ".." sequences to navigate to the targeted file. An attack using SQL injection (CWE-89) might not initially succeed, but an error message could reveal the malformed query, which would expose query logic and possibly even passwords or other sensitive information used within the query.
+</p>
+<p>
+    <b>Vulnerable Code:</b><br/>
+<pre>try {
+  out = httpResponse.getOutputStream()
+} catch (Exception e) {
+  e.printStackTrace(out);
+}</pre>
+</p>
+<p>
+<b>References</b><br/>
+<a href="https://cwe.mitre.org/data/definitions/209.html">CWE-209: Information Exposure Through an Error Message</a><br/>
+<a href="https://cwe.mitre.org/data/definitions/211.html">CWE-211: Information Exposure Through Externally-Generated Error Message</a><br/>
+</p>
+            
+        <h2>
+         <a name="OBJECT_DESERIALIZATION">OBJECT_DESERIALIZATION: Object deserialization is used in {1}</a>
+      </h2>
+            
+<p>
+    Object deserialization of untrusted data can lead to remote code execution, if there is a class in classpath that allows
+    the trigger of malicious operation.
+</p>
+<p>
+    Libraries developers tend to fix class that provided potential malicious trigger. There are still classes that are
+    known to trigger Denial of Service<sup>[1]</sup>.
+</p>
+<p>
+    Deserialization is a sensible operation that has a great history of vulnerabilities. The web application might
+    become vulnerable as soon as a new vulnerability is found in the Java Virtual Machine<sup>[2] [3]</sup>.
+</p>
+
+<p>
+<b>Code at risk:</b><br/>
+<pre>
+public UserData deserializeObject(InputStream receivedFile) throws IOException, ClassNotFoundException {
+
+    try (ObjectInputStream in = new ObjectInputStream(receivedFile)) {
+        return (UserData) in.readObject();
+    }
+}
+</pre>
+</p>
+
+<p>
+<b>Solutions:</b><br/>
+<p>
+Avoid deserializing object provided by remote users.
+</p>
+<br/>
+<p>
+<b>References</b><br/>
+<a href="https://cwe.mitre.org/data/definitions/502.html">CWE-502: Deserialization of Untrusted Data</a><br/>
+<a href="https://www.owasp.org/index.php/Deserialization_of_untrusted_data">Deserialization of untrusted data</a><br/>
+<a href="https://www.oracle.com/technetwork/java/seccodeguide-139067.html#8">Serialization and Deserialization </a><br/>
+<a href="https://github.com/frohoff/ysoserial">A tool for generating payloads that exploit unsafe Java object deserialization</a><br/>
+[1] <a href="https://gist.github.com/coekie/a27cc406fc9f3dc7a70d">Example of Denial of Service using the class <code>java.util.HashSet</code></a><br/>
+[2] <a href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2015-2590">OpenJDK: Deserialization issue in ObjectInputStream.readSerialData() (CVE-2015-2590)</a><br/>
+[3] <a href="https://www.rapid7.com/db/modules/exploit/multi/browser/java_calendar_deserialize">Rapid7: Sun Java Calendar Deserialization Privilege Escalation (CVE-2008-5353)</a>
+</p>
+
+        <h2>
+         <a name="PREDICTABLE_RANDOM">PREDICTABLE_RANDOM: Predictable pseudorandom number generator</a>
+      </h2>
+            
+<p>The use of a predictable random value can lead to vulnerabilities when used in certain security critical contexts. For example, when the value is used as:</p>
+<ul>
+<li>a CSRF token: a predictable token can lead to a CSRF attack as an attacker will know the value of the token</li>
+<li>a password reset token (sent by email): a predictable password token can lead to an account takeover, since an attacker will guess the URL of the "change password" form</li>
+<li>any other secret value</li>
+</ul>
+<p>
+A quick fix could be to replace the use of <code>java.util.Random</code> with something stronger, such as <code>java.security.SecureRandom</code>.
+</p>
+<p>
+<b>Vulnerable Code:</b><br/>
+<pre>String generateSecretToken() {
+    Random r = new Random();
+    return Long.toHexString(r.nextLong());
+}</pre>
+</p>
+<p>
+<b>Solution:</b>
+<pre>import org.apache.commons.codec.binary.Hex;
+
+String generateSecretToken() {
+    SecureRandom secRandom = new SecureRandom();
+
+    byte[] result = new byte[32];
+    secRandom.nextBytes(result);
+    return Hex.encodeHexString(result);
+}</pre>
+</p>
+<br/>
+<p>
+<b>References</b><br/>
+<a href="https://jazzy.id.au/2010/09/20/cracking_random_number_generators_part_1.html">Cracking Random Number Generators - Part 1 (https://jazzy.id.au)</a><br/>
+<a href="https://www.securecoding.cert.org/confluence/display/java/MSC02-J.+Generate+strong+random+numbers">CERT: MSC02-J. Generate strong random numbers</a><br/>
+<a href="https://cwe.mitre.org/data/definitions/330.html">CWE-330: Use of Insufficiently Random Values</a><br/>
+<a href="https://blog.h3xstream.com/2014/12/predicting-struts-csrf-token-cve-2014.html">Predicting Struts CSRF Token (Example of real-life vulnerability and exploitation)</a>
+</p>
+
+        <h2>
+         <a name="PATH_TRAVERSAL_IN">PATH_TRAVERSAL_IN: Potential Path Traversal (file read)</a>
+      </h2>
+            
+<p>A file is opened to read its content. The filename comes from an <b>input</b> parameter.
+If an unfiltered parameter is passed to this file API, files from an arbitrary filesystem location could be read.</p>
+<p>This rule identifies <b>potential</b> path traversal vulnerabilities. In many cases, the constructed file path cannot be controlled
+by the user. If that is the case, the reported instance is a false positive.</p>
+<br/>
+
+<p>
+    <b>Vulnerable Code:</b><br/>
+<pre>@GET
+@Path("/images/{image}")
+@Produces("images/*")
+public Response getImage(@javax.ws.rs.PathParam("image") String image) {
+    File file = new File("resources/images/", image); //Weak point
+
+    if (!file.exists()) {
+        return Response.status(Status.NOT_FOUND).build();
+    }
+
+    return Response.ok().entity(new FileInputStream(file)).build();
+}</pre>
+</p>
+<br/>
+
+<p>
+    <b>Solution:</b><br/>
+<pre>import org.apache.commons.io.FilenameUtils;
+
+@GET
+@Path("/images/{image}")
+@Produces("images/*")
+public Response getImage(@javax.ws.rs.PathParam("image") String image) {
+    File file = new File("resources/images/", FilenameUtils.getName(image)); //Fix
+
+    if (!file.exists()) {
+        return Response.status(Status.NOT_FOUND).build();
+    }
+
+    return Response.ok().entity(new FileInputStream(file)).build();
+}</pre>
+</p>
+<br/>
+<p>
+<b>References</b><br/>
+<a href="http://projects.webappsec.org/w/page/13246952/Path%20Traversal">WASC: Path Traversal</a><br/>
+<a href="https://www.owasp.org/index.php/Path_Traversal">OWASP: Path Traversal</a><br/>
+<a href="https://capec.mitre.org/data/definitions/126.html">CAPEC-126: Path Traversal</a><br/>
+<a href="https://cwe.mitre.org/data/definitions/22.html">CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')</a>
+</p>
+
+        </body>
+</html>
