@@ -22,8 +22,7 @@
 
 package evosuite.org.apache.commons.lang3.reflect;
 
-import evosuite.org.apache.commons.lang3.reflect.TypeUtils_ESTest_scaffolding;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 import static org.evosuite.runtime.EvoAssertions.*;
 import java.lang.reflect.GenericArrayType;
@@ -41,7 +40,7 @@ import org.junit.runner.RunWith;
 @RunWith(EvoRunner.class) @EvoRunnerParameters(mockJVMNonDeterminism = true, useVFS = true, useVNET = true, resetStaticState = true, separateClassLoader = true) 
 public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
 
-  @Test(timeout = 4000)
+  @Test
   public void test00()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -55,7 +54,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test01()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
@@ -66,7 +65,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test02()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Map<TypeVariable<?>, Type> map0 = TypeUtils.getTypeArguments((Type) class0, (Class<?>) class0);
@@ -74,7 +73,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertNotNull(parameterizedType0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test03()  throws Throwable  {
       Type[] typeArray0 = new Type[0];
       Class<Integer> class0 = Integer.class;
@@ -83,7 +82,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(map0.isEmpty());
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test04()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
@@ -104,7 +103,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(wildcardType1.equals((Object)wildcardType0));
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test05()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -119,7 +118,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test06()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -134,7 +133,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test07()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       Class<Integer> class0 = Integer.class;
@@ -151,7 +150,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test08()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       // Undeclared exception!
@@ -167,7 +166,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test09()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -182,7 +181,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test10()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(wildcardType0);
@@ -199,7 +198,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test11()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -214,7 +213,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test12()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -229,7 +228,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test13()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -244,7 +243,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test14()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       // Undeclared exception!
@@ -260,7 +259,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test15()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(typeUtils0.WILDCARD_ALL);
@@ -288,14 +287,14 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test16()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       String string0 = TypeUtils.toString((Type) class0);
       assertEquals("java.lang.Integer", string0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test17()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -312,7 +311,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test18()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       // Undeclared exception!
@@ -328,7 +327,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test19()  throws Throwable  {
       Type[] typeArray0 = new Type[0];
       Type[] typeArray1 = TypeUtils.normalizeUpperBounds(typeArray0);
@@ -342,14 +341,14 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertSame(typeArray0, typeArray1);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test20()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Class<?> class1 = TypeUtils.getRawType(class0, class0);
       assertFalse(class1.isPrimitive());
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test21()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       Type[] typeArray0 = TypeUtils.getImplicitUpperBounds(wildcardType0);
@@ -367,14 +366,14 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test22()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       Type[] typeArray0 = TypeUtils.getImplicitLowerBounds(wildcardType0);
       assertEquals(1, typeArray0.length);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test23()  throws Throwable  {
       Type[] typeArray0 = new Type[3];
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
@@ -384,14 +383,14 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals(3, typeArray1.length);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test24()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       boolean boolean0 = TypeUtils.equals((Type) class0, (Type) null);
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test25()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -399,34 +398,34 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test26()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       boolean boolean0 = TypeUtils.equals((Type) wildcardType0, (Type) wildcardType0);
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test27()  throws Throwable  {
       boolean boolean0 = TypeUtils.containsTypeVariables((Type) null);
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test28()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       boolean boolean0 = TypeUtils.containsTypeVariables(class0);
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test29()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       Typed<Integer> typed0 = TypeUtils.wrap((Type) wildcardType0);
       assertNotNull(typed0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test30()  throws Throwable  {
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
       Type[] typeArray0 = new Type[1];
@@ -439,7 +438,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals("? super ?[]", string0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test31()  throws Throwable  {
       Type[] typeArray0 = new Type[2];
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
@@ -458,14 +457,14 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test32()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       Type type0 = TypeUtils.unrollVariables((Map<TypeVariable<?>, Type>) null, typeUtils0.WILDCARD_ALL);
       assertNotNull(type0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test33()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Map<TypeVariable<?>, Type> map0 = TypeUtils.getTypeArguments((Type) class0, (Class<?>) class0);
@@ -473,7 +472,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test34()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[1];
@@ -491,27 +490,27 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test35()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       boolean boolean0 = TypeUtils.isInstance((Object) null, typeUtils0.WILDCARD_ALL);
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test36()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       boolean boolean0 = TypeUtils.isInstance((Object) null, class0);
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test37()  throws Throwable  {
       boolean boolean0 = TypeUtils.isInstance((Object) null, (Type) null);
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test38()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -524,7 +523,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test39()  throws Throwable  {
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
       Type[] typeArray0 = new Type[3];
@@ -535,7 +534,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test40()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
@@ -547,7 +546,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test41()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       Type[] typeArray0 = new Type[2];
@@ -555,7 +554,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test42()  throws Throwable  {
       Type[] typeArray0 = new Type[0];
       Class<Integer> class0 = Integer.class;
@@ -565,7 +564,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test43()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       Class<Integer> class0 = Integer.class;
@@ -575,7 +574,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test44()  throws Throwable  {
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
       Type[] typeArray0 = new Type[1];
@@ -587,7 +586,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test45()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -597,7 +596,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test46()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -614,7 +613,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals(1, typeArray1.length);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test47()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -623,7 +622,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test48()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -635,7 +634,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals(1, typeArray1.length);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test49()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       Class<Integer> class0 = Integer.class;
@@ -643,7 +642,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test50()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -652,20 +651,20 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test51()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       boolean boolean0 = TypeUtils.isArrayType(class0);
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test52()  throws Throwable  {
       boolean boolean0 = TypeUtils.isArrayType((Type) null);
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test53()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -673,7 +672,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test54()  throws Throwable  {
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
       Type[] typeArray0 = new Type[3];
@@ -693,7 +692,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test55()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -702,7 +701,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(map0.isEmpty());
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test56()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       Class<Integer> class0 = Integer.class;
@@ -710,7 +709,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertNull(map0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test57()  throws Throwable  {
       Type[] typeArray0 = new Type[0];
       Class<Integer> class0 = Integer.class;
@@ -719,7 +718,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals(0, map0.size());
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test58()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -728,14 +727,14 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test59()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       Class<?> class0 = TypeUtils.getRawType(wildcardType0, wildcardType0);
       assertNull(class0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test60()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -750,7 +749,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test61()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -759,7 +758,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals("class java.lang.Integer", class1.toString());
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test62()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(typeUtils0.WILDCARD_ALL);
@@ -767,7 +766,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertNotNull(type0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test63()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -776,21 +775,21 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(class2.isArray());
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test64()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type type0 = TypeUtils.getArrayComponentType(class0);
       assertNull(type0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test65()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       Type type0 = TypeUtils.getArrayComponentType(typeUtils0.WILDCARD_ALL);
       assertNull(type0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test66()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -808,7 +807,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test67()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       Class<Integer> class0 = Integer.class;
@@ -816,7 +815,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test68()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -825,7 +824,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test69()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -833,7 +832,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test70()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -842,7 +841,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test71()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
@@ -857,7 +856,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals("? extends ? & ? & ? & ?", string0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test72()  throws Throwable  {
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
       Type[] typeArray0 = new Type[1];
@@ -870,7 +869,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals("? extends ?[]", string0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test73()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
@@ -881,14 +880,14 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test74()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       boolean boolean0 = TypeUtils.isAssignable(wildcardType0, wildcardType0);
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test75()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -899,7 +898,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test76()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -908,7 +907,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test77()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -917,7 +916,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test78()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -925,7 +924,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertTrue(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test79()  throws Throwable  {
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
       WildcardType wildcardType0 = typeUtils_WildcardTypeBuilder0.build();
@@ -933,7 +932,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals(1, typeArray0.length);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test80()  throws Throwable  {
       TypeUtils.WildcardTypeBuilder typeUtils_WildcardTypeBuilder0 = TypeUtils.wildcardType();
       Type[] typeArray0 = new Type[1];
@@ -943,7 +942,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals("?", string0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test81()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Type[] typeArray0 = new Type[0];
@@ -955,14 +954,14 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals(1, typeArray2.length);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test82()  throws Throwable  {
       WildcardType wildcardType0 = TypeUtils.WILDCARD_ALL;
       boolean boolean0 = TypeUtils.containsTypeVariables(wildcardType0);
       assertFalse(boolean0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test83()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -974,7 +973,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertNotSame(typeArray1, typeArray0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test84()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -983,7 +982,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertNotNull(parameterizedType0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test85()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Map<TypeVariable<?>, Type> map0 = TypeUtils.getTypeArguments((Type) class0, (Class<?>) class0);
@@ -1000,7 +999,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test86()  throws Throwable  {
       // Undeclared exception!
       try { 
@@ -1015,7 +1014,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       }
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test87()  throws Throwable  {
       TypeUtils typeUtils0 = new TypeUtils();
       Type[] typeArray0 = new Type[2];
@@ -1025,7 +1024,7 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals(1, typeArray1.length);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test88()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       GenericArrayType genericArrayType0 = TypeUtils.genericArrayType(class0);
@@ -1033,14 +1032,14 @@ public class TypeUtils_ESTest extends TypeUtils_ESTest_scaffolding {
       assertEquals("java.lang.Integer[]", string0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test89()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       Typed<Integer> typed0 = TypeUtils.wrap(class0);
       assertNotNull(typed0);
   }
 
-  @Test(timeout = 4000)
+  @Test
   public void test90()  throws Throwable  {
       Class<Integer> class0 = Integer.class;
       // Undeclared exception!
