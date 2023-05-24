@@ -30,7 +30,11 @@ import org.apache.commons.lang3.concurrent.locks.LockingVisitors.LockVisitor;
 import org.apache.commons.lang3.concurrent.locks.LockingVisitors.StampedLockVisitor;
 import org.apache.commons.lang3.function.FailableConsumer;
 import org.junit.jupiter.api.Test;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Mode;
 
+@BenchmarkMode(Mode.AverageTime)
 public class LockingVisitorsTest extends AbstractLangTest {
 
     private static final Duration SHORT_DELAY = Duration.ofMillis(100);
@@ -84,6 +88,7 @@ public class LockingVisitorsTest extends AbstractLangTest {
         }
     }
 
+    @Benchmark
     @Test
     public void testReentrantReadWriteLockExclusive() throws Exception {
 
@@ -95,6 +100,7 @@ public class LockingVisitorsTest extends AbstractLangTest {
             LockingVisitors.reentrantReadWriteLockVisitor(booleanValues));
     }
 
+    @Benchmark
     @Test
     public void testReentrantReadWriteLockNotExclusive() throws Exception {
 
@@ -106,6 +112,7 @@ public class LockingVisitorsTest extends AbstractLangTest {
             LockingVisitors.reentrantReadWriteLockVisitor(booleanValues));
     }
 
+    @Benchmark
     @Test
     public void testResultValidation() {
         final Object hidden = new Object();
@@ -118,6 +125,7 @@ public class LockingVisitorsTest extends AbstractLangTest {
         assertNotSame(hidden, o2);
     }
 
+    @Benchmark
     @Test
     public void testStampedLockExclusive() throws Exception {
 
@@ -129,6 +137,7 @@ public class LockingVisitorsTest extends AbstractLangTest {
             LockingVisitors.stampedLockVisitor(booleanValues));
     }
 
+    @Benchmark
     @Test
     public void testStampedLockNotExclusive() throws Exception {
 
