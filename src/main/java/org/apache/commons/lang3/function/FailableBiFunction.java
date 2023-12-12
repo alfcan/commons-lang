@@ -46,7 +46,7 @@ public interface FailableBiFunction<T, U, R, E extends Throwable> {
      * @param <E> The kind of thrown exception or error.
      * @return The NOP singleton.
      */
-    static <T, U, R, E extends Throwable> FailableBiFunction<T, U, R, E> nop() {
+    static <T, U, R, E extends Throwable> FailableBiFunction<T, U, R, E> getNop() {
         return NOP;
     }
 

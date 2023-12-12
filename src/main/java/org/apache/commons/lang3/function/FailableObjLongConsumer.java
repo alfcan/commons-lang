@@ -40,7 +40,7 @@ public interface FailableObjLongConsumer<T, E extends Throwable> {
      * @param <E> The kind of thrown exception or error.
      * @return The NOP singleton.
      */
-    static <T, E extends Throwable> FailableObjLongConsumer<T, E> nop() {
+    static <T, E extends Throwable> FailableObjLongConsumer<T, E> getNop() {
         return NOP;
     }
 
